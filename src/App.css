@@ -1,0 +1,327 @@
+:root{
+  --bg: #f7f8fb;
+  --surface: #ffffff;
+  --text: #1f2633;
+  --muted: #6b7280;
+  --brand: black;    /* deep blue */
+  --brand-2: red;    /* accent */
+  --border: #e5e7eb;
+  --radius: 14px;
+  --shadow: 0 6px 18px rgba(0,0,0,0.06);
+  --container: 1100px;
+  --event-img-h: 280px; /* shared image height for event cards (rush + philanthropy) */
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans";
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 16px; }
+
+/* App layout */
+.app { min-height: 100%; display: flex; flex-direction: column; }
+.main { width: 100%; margin: 24px 0; flex: 1; }
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 16px;
+  text-align: center;
+  color: var(--muted);
+  background: var(--surface);
+}
+
+/* Navbar */
+.navbar {
+  position: sticky; top: 0; z-index: 10;
+  width: 100%;
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
+}
+.navbar-inner {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+
+
+.brand.brand--pill{
+  --bg:#fff; --fg:#000; --accent:var(--brand-2);
+  background: var(--bg);
+  color: var(--fg);
+  border: 2px solid var(--accent);
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 0 rgba(0,0,0,.06);
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.brand.brand--pill:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(255,0,0,.18);
+  background:#fff5f5;
+}
+
+
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+  justify-content: center;
+}
+.nav-link {
+  padding: 8px 12px; border-radius: 999px; color: #fff; text-decoration: none; opacity: .92;
+}
+.nav-link:hover { background: rgba(255,255,255,.15); opacity: 1; }
+.nav-link.active { background: rgba(255,255,255,.25); }
+.nav-logos { display: flex; align-items: center; gap: 5px; }
+.nav-logos img { height: 42px; width: auto; display: block; }
+.logo-x { font-weight: 700; font-size: 20px; color: #fff; }
+
+/* Hero */
+.hero {
+  position: relative;
+  height: clamp(320px, 50vh, 520px);
+  background-image: url("/insta3.jpg"); /* Replace with your banner */
+  background-size: cover;
+  background-position: 50% 60%;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: rgba(120, 11, 11, 0.55);
+}
+.hero-content {
+  position: relative; height: 100%;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+  color: #fff;
+}
+.hero-title { font-size: clamp(28px, 5vw, 54px); margin: 0 0 8px 0; font-weight: 900; }
+.hero-subtitle { margin: 0 0 16px 0; font-size: clamp(16px, 2.5vw, 20px); opacity: .95; }
+.hero-actions { display: flex; gap: 10px; }
+.btn {
+  padding: 10px 14px; border-radius: 10px; border: 0; cursor: pointer; text-decoration: none;
+  display: inline-block;
+}
+.btn-primary { background: #ffffff; color: var(--brand); font-weight: 700; }
+.btn-primary:hover { filter: brightness(0.95); }
+.btn-ghost { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.35); }
+.btn-ghost:hover { background: rgba(255,255,255,.25); }
+
+/* Sections */
+.section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  margin-top: 24px;
+}
+.section-title { margin: 0 0 12px 0; font-size: 28px; }
+.section-body { font-size: 16px; }
+.lead { font-size: 18px; margin-bottom: 10px; }
+.muted { color: var(--muted); }
+
+/* About grid */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+.about-card {
+  border: 1px solid var(--brand-2);
+  border-radius: 12px;
+  background: #fff5f5;
+  padding: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+}
+.about-card h3 {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+}
+.checks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.checks li {
+  position: relative;
+  padding-left: 22px;
+  margin: 8px 0;
+}
+.checks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--brand-2);
+}
+
+/* Split layout (Latest Event) */
+.split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 16px;
+  align-items: center;
+}
+.split-right-image .split-text { order: 1; }
+.split-right-image .split-image { order: 2; }
+.split-image img {
+  width: 100%;
+  height: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+}
+
+/* Lists/cards */
+.bullets { margin: 12px 0; padding-left: 18px; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+.card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  padding: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+}
+.card h3 { margin: 0 0 6px 0; font-size: 18px; }
+
+/* Instagram grid */
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.insta-tile {
+  display: block; overflow: hidden; border-radius: 12px; border: 1px solid var(--border);
+  background: #fff;
+}
+.insta-tile img {
+  width: 100%; height: 100%; aspect-ratio: 1/1; object-fit: cover; display: block;
+  transition: transform .25s ease;
+}
+.insta-tile:hover img { transform: scale(1.03); }
+
+/* Brothers */
+.brother-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+.brother-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+}
+.brother-photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: #ffeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brother-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 31%;
+}
+.photo-placeholder {
+  color: #8b6464; font-weight: 600; letter-spacing: .4px;
+}
+.brother-info {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 12px;
+}
+.brother-name { font-weight: 700; }
+
+/* Highlight block */
+.highlight {
+  border: 1px dashed var(--brand-2);
+  background: #fff5f5;
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+/* Contact */
+/* Contact */
+.contact { display: grid; grid-template-columns: 1fr; gap: 12px; }
+
+.contact-card {
+  border: 1px solid var(--brand-2);     /* red border */
+  border-radius: 12px;
+  background: #fff5f5;                  /* faint red background */
+  padding: 14px;
+  box-shadow: 0 2px 10px rgba(255,0,0,.06); /* subtle red-tinted shadow (optional) */
+}
+
+.contact-list { margin: 8px 0 0 0; padding-left: 18px; }
+.contact-list li { margin: 6px 0; }
+
+
+/* -------- Event-style cards (used by Philanthropy & Rush) -------- */
+.event-stack {
+  display: grid;
+  gap: 16px;
+}
+
+.event-card {
+  padding: 0;       /* image can touch the card edge */
+  overflow: hidden; /* keep rounded corners clean */
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.7fr; /* text | image */
+  align-items: stretch;
+}
+
+.event-content { padding: 14px; }
+.event-content h3 { margin: 0 0 6px 0; font-size: 20px; }
+
+/* Same visual height for all event photos */
+.event-media {
+  height: var(--event-img-h);
+  align-self: start; /* don't stretch with tall text */
+}
+.event-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Optional per-photo crop tweak (used on Grotto) */
+.event-media img.obj-up { object-position: 50% 16%; }
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .split { grid-template-columns: 1fr; }
+  .split-image img { max-height: 240px; }
+
+  .event-grid { grid-template-columns: 1fr; }
+  :root { --event-img-h: 220px; }
+}
+
+@media (max-width: 720px) {
+  .navbar-inner { height: auto; padding: 10px 0; }
+  .nav-links { flex-wrap: wrap; }
+}
