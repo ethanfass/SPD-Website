@@ -54,7 +54,7 @@ function NavBar({ page, onNavigate }: { page: Page; onNavigate: (p: Page) => voi
       <div className="navbar-inner container">
         {/* LEFT: Brand */}
         <div
-          className="brand brand--pill"
+          className="brand brand--ring border"
           onClick={() => onNavigate("home")}
           onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onNavigate("home"); }}
           role="button"
@@ -175,6 +175,7 @@ function HomePage() {
 
       {/* LATEST EVENT (image on the right on desktop) */}
       <Section title="Latest Event">
+        <div className="contact-card">
         <div className="split split-right-image">
           <div className="split-text">
             <h3>Something with Gphi idk</h3>
@@ -186,16 +187,20 @@ function HomePage() {
             <a className="btn btn-ghost" href="#/rush" aria-label="See upcoming events">
               See Upcoming Events
             </a>
+            
           </div>
           <div className="split-image">
             <img src={LatestEventImg} alt="Recent ΣΦΔ engineering showcase" />
           </div>
         </div>
+        </div>
       </Section>
 
       {/* INSTAGRAM */}
       <Section title="Instagram">
-        <InstagramFeed />
+        <div className="about-card">
+          <InstagramFeed />
+        </div>
       </Section>
 
       {/* CONTACT */}
@@ -255,7 +260,7 @@ function RushPage() {
         </article>
 
         {/* 182 West Main St */}
-        <article className="card event-card">
+        <article className="cardx event-card">
           <div className="event-grid">
             <div className="event-content">
               <h3>182 West Main St</h3>
@@ -304,7 +309,7 @@ function PhilanthropyPage() {
 
       <div className="event-stack">
         {/* Closest upcoming FIRST */}
-        <article className="card event-card">
+        <article className="cardx event-card">
           <div className="event-grid">
             <div className="event-content">
               <h3>UDairy Ice Cream Truck with GPhi 🍦🚙</h3>
@@ -344,46 +349,105 @@ function PhilanthropyPage() {
 /** -------------------------------
  *  UDANCE
  *  ------------------------------- */
+// (Optional) Use any 9 images you like; below reuses your existing insta pics.
+import U1 from "./assets/instagram/insta1.jpg";
+import U2 from "./assets/instagram/insta2.jpg";
+import U3 from "./assets/instagram/insta3.jpg";
+
+const UDANCE_PICS = [U1, U2, U3, U2, U3, U1, U3, U1, U2];
+
+// Fill this in with your actual chapter total from last year
+const LAST_YEAR_SPD_TOTAL = "$X,XXX"; // e.g., "$4,250"
+
 function UDancePage() {
   return (
-    <Section title="ΣΦΔ x UDance">
-      <p>
-        UDance is a student-run philanthropy supporting children and families affected by childhood
-        cancer. ΣΦΔ contributes through fundraising, event participation, and volunteering all year.
-      </p>
-      <div className="highlight">
-        <strong>How we help:</strong>
-        <ul>
-          <li>Team fundraising drives and corporate matching</li>
-          <li>Volunteering at UDance events</li>
-          <li>Partnering with other orgs to maximize impact</li>
+    <Section title="ΣΦΔ × UDance">
+      {/* Top: What UDance is / who we raise for / why it matters */}
+      <div className="udance-intro">
+        <p className="lead">
+          UDance is the University of Delaware’s year-long, student-run philanthropy benefiting
+          <strong>The Andrew McDonough B+ Foundation</strong>, which supports families of children
+          with cancer and funds pediatric cancer research.
+
+        </p>
+        <div className="udance-points">
+          <div className="about-card">
+            <h4>Who we raise for</h4>
+            <p>
+              The B+ Foundation honors Andrew McDonough and helps families nationwide with
+              financial aid and emotional support, while advancing research.
+            </p>
+          </div>
+          <div className="about-card">
+            <h4>Why it matters</h4>
+            <p>
+              UD students rally all year at events, campaigns, and a spring dance marathon to
+              make a direct impact on kids and families facing childhood cancer.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* SPD impact */}
+      <div className="udance-spd card">
+        <h3>ΣΦΔ’s Role</h3>
+        <ul className="bullets">
+          <li>Fundraising drives (tabling, dine-outs, collab events)</li>
+          <li>Volunteering and event support throughout the year</li>
+          <li>Partnering with other orgs to boost outreach and donations</li>
         </ul>
+        <div className="udance-total">
+          <span className="total-label">Last year ΣΦΔ raised:</span>
+          <span className="total-amount">{LAST_YEAR_SPD_TOTAL}</span>
+        </div>
+      </div>
+      <br />
+
+      {/* 3×3 collage */}
+      <div className="about-card">
+      <div className="udance-collage">
+        {UDANCE_PICS.map((src, i) => (
+          <div key={i} className="udance-tile">
+            <img src={src} alt={`UDance collage ${i + 1}`} />
+          </div>
+        ))}
+      </div>
       </div>
     </Section>
   );
 }
 
+
 /** -------------------------------
  *  BROTHERS (easy to edit in code)
  *  ------------------------------- */
-type Brother = { id: string; name: string; role: string; photoUrl?: string };
+type ClassYear = "Freshman" | "Sophomore" | "Junior" | "Senior" | "Alumni";
+
+type Brother = {
+  id: string;
+  name: string;
+  role: string;
+  classYear?: ClassYear;   // <- add this
+  photoUrl?: string;
+};
 
 /** Add brothers here — just push objects to this array. */
 const BROTHERS: Brother[] = [
-  { id: "president", name: "Khai McCaskill", role: "President", photoUrl: "" },
-  { id: "internal-vp", name: "Shawn Saxon", role: "Internal Vice President", photoUrl: "" },
-  { id: "external-vp", name: "Stef Rabeno", role: "External Vice President", photoUrl: "" },
-  { id: "business-manager", name: "AJ Nash", role: "Business Manager", photoUrl: "" },
-  { id: "risk-chair", name: "Will Hastings", role: "Risk Chair", photoUrl: "" },
-  { id: "philanthropy-chair", name: "Baxter Gallagher", role: "Philanthropy Chair", photoUrl: "" },
-  { id: "secretary", name: "Teddy Romanowski", role: "Secretary", photoUrl: "" },
-  { id: "social-chair-1", name: "Gregg Marella", role: "Social Chair #1", photoUrl: "" },
-  { id: "social-chair-2", name: "Eddie Badolato", role: "Social Chair #2", photoUrl: "" },
-  { id: "new-member-educator", name: "Paul Edelman", role: "New Member Educator", photoUrl: "" },
-  { id: "chaplain", name: "Tom Ingenito", role: "Chaplain", photoUrl: TomIngenitoPic },
-  { id: "dei-chair", name: "Connor Lockwood", role: "DEI Chair", photoUrl: "" },
-  { id: "rush-chair-1", name: "Kyle Burke", role: "Rush Chair #1", photoUrl: "" },
-  { id: "rush-chair-2", name: "Tim Scott", role: "Rush Chair #2", photoUrl: "" },
+  { id: "president", name: "Khai McCaskill", role: "President", classYear: "Senior", photoUrl: "" },
+  { id: "internal-vp", name: "Shawn Saxon", role: "Internal Vice President", classYear: "Senior", photoUrl: "" },
+  { id: "external-vp", name: "Stef Rabeno", role: "External Vice President", classYear: "Senior", photoUrl: "" },
+  { id: "business-manager", name: "AJ Nash", role: "Business Manager", classYear: "Senior", photoUrl: "" },
+  { id: "risk-chair", name: "Will Hastings", role: "Risk Chair", classYear: "Junior", photoUrl: "" },
+  { id: "philanthropy-chair", name: "Baxter Gallagher", role: "Philanthropy Chair", classYear: "Junior", photoUrl: "" },
+  { id: "secretary", name: "Teddy Romanowski", role: "Secretary", classYear: "Junior", photoUrl: "" },
+  { id: "social-chair-1", name: "Gregg Marella", role: "Social Chair #1", classYear: "Senior", photoUrl: "" },
+  { id: "social-chair-2", name: "Eddie Badolato", role: "Social Chair #2", classYear: "Senior", photoUrl: "" },
+  { id: "new-member-educator", name: "Paul Edelman", role: "New Member Educator", classYear: "Junior", photoUrl: "" },
+  { id: "chaplain", name: "Tom Ingenito", role: "Chaplain", classYear: "Junior", photoUrl: TomIngenitoPic },
+  { id: "dei-chair", name: "Connor Lockwood", role: "DEI Chair", classYear: "Senior", photoUrl: "" },
+  { id: "accreditation-chair", name: "Jack Carr", role: "Accreditation Chair", classYear: "Junior", photoUrl: ""},
+  { id: "rush-chair-1", name: "Kyle Burke", role: "Rush Chair #1", classYear: "Sophomore", photoUrl: "" },
+  { id: "rush-chair-2", name: "Tim Scott", role: "Rush Chair #2", classYear: "Sophomore", photoUrl: "" },
 ];
 
 function BrothersPage() {
@@ -402,8 +466,12 @@ function BrothersPage() {
             </div>
             <div className="brother-info">
               <div className="brother-name">{b.name}</div>
-              <div className="brother-role">{b.role}</div>
+              <div className="brother-meta brother-meta--stacked">
+                <span className="role-badge">{b.role}</span>
+                {b.classYear && <span className="year-muted">{b.classYear}</span>}
+              </div>
             </div>
+
           </div>
         ))}
       </div>
