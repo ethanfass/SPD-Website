@@ -16,6 +16,8 @@
   --stripe-black: rgba(0,0,0,.15);  /* black/gray stripe */
   --stripe-white: #fff;
   --nav-h: 88px;
+  --nav-r: 64px;
+  --nav-gap: var(--nav-h);
 }
 
 * { box-sizing: border-box; }
@@ -37,7 +39,7 @@ body {
   width: 100%;
   margin: 24px 0;
   flex: 1;
-  margin-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
+  margin-top: calc(var(--nav-gap) + env(safe-area-inset-top, 0px));
 }
 
 .footer {
@@ -167,7 +169,7 @@ body {
   content:"";
   display:block;
   height: 4px;
-  width: clamp(120px, 22vw, 412px);
+  width: 412px;
   margin-top: 8px;
   border-radius: 999px;
   background: linear-gradient(90deg, #ff3636);
@@ -651,7 +653,10 @@ ul.bulletcaret, ol.bulletcaret {
 .bulletsquare li::before { content: "■"; font-size: .8em; }
 .bulletcaret  li::before { content: "▸"; }
 
+.app.is-home    { --nav-gap: var(--nav-h); }
 
+/* All other pages use the regular smaller gap */
+.app.is-regular { --nav-gap: var(--nav-r); }
 
 /**
 .scroll-progress {
@@ -660,7 +665,3 @@ ul.bulletcaret, ol.bulletcaret {
   z-index: 1101;
 }
 **/
-
-
-
-

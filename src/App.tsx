@@ -127,7 +127,7 @@ function HomePage() {
         </p>
 
         <div className="about-grid">
-               <div className="about-card">
+          <div className="about-card">
             <h3>History &amp; Heritage</h3>
             <p>
               The <strong>Psi Chapter</strong> of Sigma Phi Delta at the University of Delaware was founded on
@@ -486,10 +486,11 @@ export default function App() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  return (
-    <div className="app bg-sides-stripes bg-page-diagonal">
-      <div className="scroll-progress" />
+  const isHome = page === "home";   // <-- which gap to use?
 
+  return (
+    <div className={`app bg-sides-stripes bg-page-diagonal ${isHome ? "is-home" : "is-regular"}`}>
+      <div className="scroll-progress" />
       <NavBar page={page} onNavigate={navigate} />
       <main className="main">
         {page === "home" && <HomePage />}
@@ -505,5 +506,3 @@ export default function App() {
     </div>
   );
 }
-
-
