@@ -10,18 +10,14 @@ import grottosRush from "./assets/rush-pics/grottos.jpg";
 import icecreamPic from "./assets/phila-pics/icecream.jpg";
 import pumpkinPic from "./assets/phila-pics/pumpkin.jpg";
 
-// Latest Event image (swap for any banner you prefer)
-import LatestEventImg from "./assets/instagram/insta1.jpg";
+import LatestEventImg from "./assets/brother-pics/tom-ingenito.jpg";
 
-type Page = "home" | "rush" | "philanthropy" | "udance" | "brothers";
+type Page = "home" | "rush" | "philanthropy" | "udance" | "highlights" | "brothers";
 
-/** -------------------------------
- *  NAV / ROUTER (hash-based)
- *  ------------------------------- */
 function useHashRoute(defaultPage: Page = "home") {
   const parseHash = (): Page => {
     const raw = window.location.hash.replace(/^#\/?/, "").toLowerCase();
-    const valid: Page[] = ["home", "rush", "philanthropy", "udance", "brothers"];
+    const valid: Page[] = ["home", "rush", "philanthropy", "udance", "highlights", "brothers"];
     return (valid.includes(raw as Page) ? (raw as Page) : defaultPage) as Page;
   };
 
@@ -46,13 +42,13 @@ function NavBar({ page, onNavigate }: { page: Page; onNavigate: (p: Page) => voi
     { key: "rush", label: "Rush" },
     { key: "philanthropy", label: "Philanthropy" },
     { key: "udance", label: "UDance" },
+    { key: "highlights", label: "Highlights" },
     { key: "brothers", label: "Brothers" },
   ];
 
   return (
     <header className="navbar">
       <div className="navbar-inner container">
-        {/* LEFT: Brand */}
         <div
           className="brand brand--ring border"
           onClick={() => onNavigate("home")}
@@ -63,9 +59,6 @@ function NavBar({ page, onNavigate }: { page: Page; onNavigate: (p: Page) => voi
         >
           ΣΦΔ - Social Engineering Fraternity
         </div>
-
-
-        {/* MIDDLE: Nav links */}
         <nav className="nav-links">
           {links.map((l) => (
             <a
@@ -81,8 +74,6 @@ function NavBar({ page, onNavigate }: { page: Page; onNavigate: (p: Page) => voi
             </a>
           ))}
         </nav>
-
-        {/* RIGHT: Logos */}
         <div className="nav-logos">
           <img src={spdLogo} alt="SPD logo" />
           <span className="logo-x">×</span>
@@ -93,9 +84,6 @@ function NavBar({ page, onNavigate }: { page: Page; onNavigate: (p: Page) => voi
   );
 }
 
-/** -------------------------------
- *  LAYOUT HELPERS
- *  ------------------------------- */
 function Section({
   title,
   children,
@@ -113,28 +101,25 @@ function Section({
   );
 }
 
-/** -------------------------------
- *  HOME
- *  ------------------------------- */
 function HomePage() {
   return (
     <>
-      {/* HERO with background image */}
       <div className="hero">
         <div className="hero-overlay" />
         <div className="hero-content container">
-          <h1 className="hero-title">Sigma Phi Delta</h1>
-          <p className="hero-subtitle">
-            A social fraternity with an engineering focus from the University of Delaware.
-          </p>
-          <div className="hero-actions">
-            <a className="btn btn-primary" href="#/rush">See Rush Events</a>
-            <a className="btn btn-ghost" href="#/philanthropy">Our Philanthropy</a>
+          <div className="hero-panel">          {/* ← add this */}
+            <h1 className="hero-title">Sigma Phi Delta</h1>
+            <p className="hero-subtitle">
+              A social fraternity with an engineering focus from the University of Delaware.
+            </p>
+            <div className="hero-actions">
+              <a className="btn btn-primary" href="#/rush">See Rush Events</a>
+              <a className="btn btn-ghost" href="#/philanthropy">Our Philanthropy</a>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* ABOUT */}
       <Section title="About Us" id="about">
         <p className="lead">
           We’re a community of engineers and friends dedicated to professional growth, campus impact,
@@ -142,9 +127,7 @@ function HomePage() {
         </p>
 
         <div className="about-grid">
-     
-          {/* History & Heritage */}
-          <div className="about-card">
+               <div className="about-card">
             <h3>History &amp; Heritage</h3>
             <p>
               The <strong>Psi Chapter</strong> of Sigma Phi Delta at the University of Delaware was founded on
@@ -157,8 +140,6 @@ function HomePage() {
               <li>Strong alumni network supporting internships and early careers</li>
             </ul>
           </div>
-
-          {/* Impact At-a-Glance (light, non-numeric) */}
           <div className="about-card">
             <h3>Impact &amp; Community</h3>
             <ul className="checks">
@@ -172,8 +153,6 @@ function HomePage() {
 
         </div>
       </Section>
-
-      {/* LATEST EVENT (image on the right on desktop) */}
       <Section title="Latest Event">
         <div className="contact-card">
         <div className="split split-right-image">
@@ -195,15 +174,11 @@ function HomePage() {
         </div>
         </div>
       </Section>
-
-      {/* INSTAGRAM */}
       <Section title="Instagram">
         <div className="about-card">
           <InstagramFeed />
         </div>
       </Section>
-
-      {/* CONTACT */}
       <Section title="Contact">
         <div className="contact">
           <div className="contact-card">
@@ -211,7 +186,7 @@ function HomePage() {
             <p>
               Interested in rush, collaborating on an event, or have other questions? Reach out and we’ll get back to you.
             </p>
-            <ul className="contact-list">
+            <ul className="bulletcaret">
               <li>
                 Email:{" "}
                 <a href="mailto:brothers@sigphipsi.com">
@@ -232,9 +207,6 @@ function HomePage() {
   );
 }
 
-/** -------------------------------
- *  RUSH
- *  ------------------------------- */
 function RushPage() {
   return (
     <Section title="Rush Events">
@@ -245,7 +217,6 @@ function RushPage() {
       <p className="muted">Rush for the fall 2025 semester has ended. Check back next semester for updates!</p>
 
       <div className="event-stack">
-        {/* Classroom Event */}
         <article className="card event-card">
           <div className="event-grid">
             <div className="event-content">
@@ -258,8 +229,6 @@ function RushPage() {
             </div>
           </div>
         </article>
-
-        {/* 182 West Main St */}
         <article className="cardx event-card">
           <div className="event-grid">
             <div className="event-content">
@@ -272,8 +241,6 @@ function RushPage() {
             </div>
           </div>
         </article>
-
-        {/* Grotto Pizza */}
         <article className="card event-card">
           <div className="event-grid">
             <div className="event-content">
@@ -295,10 +262,6 @@ function RushPage() {
   );
 }
 
-
-/** -------------------------------
- *  PHILANTHROPY
- *  ------------------------------- */
 function PhilanthropyPage() {
   return (
     <Section title="Philanthropy & Outreach">
@@ -308,7 +271,6 @@ function PhilanthropyPage() {
       </p>
 
       <div className="event-stack">
-        {/* Closest upcoming FIRST */}
         <article className="cardx event-card">
           <div className="event-grid">
             <div className="event-content">
@@ -345,24 +307,17 @@ function PhilanthropyPage() {
   );
 }
 
-
-/** -------------------------------
- *  UDANCE
- *  ------------------------------- */
-// (Optional) Use any 9 images you like; below reuses your existing insta pics.
-import U1 from "./assets/instagram/insta1.jpg";
-import U2 from "./assets/instagram/insta2.jpg";
-import U3 from "./assets/instagram/insta3.jpg";
+import U1 from "./assets/brother-pics/tom-ingenito.jpg";
+import U2 from "./assets/brother-pics/tom-ingenito.jpg";
+import U3 from "./assets/brother-pics/tom-ingenito.jpg";
 
 const UDANCE_PICS = [U1, U2, U3, U2, U3, U1, U3, U1, U2];
 
-// Fill this in with your actual chapter total from last year
-const LAST_YEAR_SPD_TOTAL = "$X,XXX"; // e.g., "$4,250"
+const LAST_YEAR_SPD_TOTAL = "$1,000,000";
 
 function UDancePage() {
   return (
     <Section title="ΣΦΔ × UDance">
-      {/* Top: What UDance is / who we raise for / why it matters */}
       <div className="udance-intro">
         <p className="lead">
           UDance is the University of Delaware’s year-long, student-run philanthropy benefiting
@@ -388,11 +343,10 @@ function UDancePage() {
         </div>
       </div>
 
-      {/* SPD impact */}
       <div className="udance-spd card">
         <h3>ΣΦΔ’s Role</h3>
-        <ul className="bullets">
-          <li>Fundraising drives (tabling, dine-outs, collab events)</li>
+        <ul className="bulletcaret">
+          <li>Fundraising drives (food trucks, dunk tank & pie smashing, canning, etc.)</li>
           <li>Volunteering and event support throughout the year</li>
           <li>Partnering with other orgs to boost outreach and donations</li>
         </ul>
@@ -402,8 +356,6 @@ function UDancePage() {
         </div>
       </div>
       <br />
-
-      {/* 3×3 collage */}
       <div className="about-card">
       <div className="udance-collage">
         {UDANCE_PICS.map((src, i) => (
@@ -417,21 +369,61 @@ function UDancePage() {
   );
 }
 
+function HighlightsPage() {
+  return (
+    <Section title="Highlights">
+      <p>
+        A running showcase of what ΣΦΔ brothers are building, researching, and achieving, on & off campus.
+        These highlights celebrate our drive, creativity, and commitment to making an impact.
+      </p>
 
-/** -------------------------------
- *  BROTHERS (easy to edit in code)
- *  ------------------------------- */
+      <div className="event-stack">
+        <article className="card event-card">
+          <div className="event-grid">
+            <div className="event-content">
+              <h3>HackUDel Winner — “SmartPark”</h3>
+              <p className="muted">Timespan: Feb–Mar 2025</p>
+              <p>
+                Team of four brothers built a computer-vision parking lot counter and a mobile app that predicts spot
+                availability in real time. Deployed a tiny YOLO model to a Raspberry Pi with on-device inference and a
+                lightweight Flask API. Took 1<sup>st</sup> place overall.
+              </p>
+            </div>
+            <div className="event-media">
+              <img src={classroomRush} alt="SmartPark project highlight" />
+            </div>
+          </div>
+        </article>
+        <article className="card event-card">
+          <div className="event-grid">
+            <div className="event-content">
+              <h3>Co-op at DuPont — Process Engineering</h3>
+              <p className="muted">Timespan: Summer 2024</p>
+              <p>
+                Scoped and implemented a new heat-exchange monitoring workflow that reduced downtime by 12%. Built
+                an automated dashboard in Python for weekly KPI reviews and collaborated with safety to update SOPs.
+              </p>
+            </div>
+            <div className="event-media">
+              <img src={pumpkinPic} alt="Process engineering co-op highlight" />
+            </div>
+          </div>
+        </article>
+      </div>
+    </Section>
+  );
+}
+
 type ClassYear = "Freshman" | "Sophomore" | "Junior" | "Senior" | "Alumni";
 
 type Brother = {
   id: string;
   name: string;
   role: string;
-  classYear?: ClassYear;   // <- add this
+  classYear?: ClassYear;
   photoUrl?: string;
 };
 
-/** Add brothers here — just push objects to this array. */
 const BROTHERS: Brother[] = [
   { id: "president", name: "Khai McCaskill", role: "President", classYear: "Senior", photoUrl: "" },
   { id: "internal-vp", name: "Shawn Saxon", role: "Internal Vice President", classYear: "Senior", photoUrl: "" },
@@ -443,6 +435,7 @@ const BROTHERS: Brother[] = [
   { id: "social-chair-1", name: "Gregg Marella", role: "Social Chair #1", classYear: "Senior", photoUrl: "" },
   { id: "social-chair-2", name: "Eddie Badolato", role: "Social Chair #2", classYear: "Senior", photoUrl: "" },
   { id: "new-member-educator", name: "Paul Edelman", role: "New Member Educator", classYear: "Junior", photoUrl: "" },
+  { id: "assistant-new-member-educator", name: "Tyler Urie", role: "Assistant New Member Educator", classYear: "Senior", photoUrl: "" },
   { id: "chaplain", name: "Tom Ingenito", role: "Chaplain", classYear: "Junior", photoUrl: TomIngenitoPic },
   { id: "dei-chair", name: "Connor Lockwood", role: "DEI Chair", classYear: "Senior", photoUrl: "" },
   { id: "accreditation-chair", name: "Jack Carr", role: "Accreditation Chair", classYear: "Junior", photoUrl: ""},
@@ -479,24 +472,31 @@ function BrothersPage() {
   );
 }
 
-/** -------------------------------
- *  HISTORY
- *  ------------------------------- */
-
-/** -------------------------------
- *  APP
- *  ------------------------------- */
 export default function App() {
   const { page, navigate } = useHashRoute("home");
 
+  useEffect(() => {
+    const onScroll = () => {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      document.documentElement.style.setProperty("--scroll", scrolled + "%");
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <div className="app">
+    <div className="app bg-sides-stripes bg-page-diagonal">
+      <div className="scroll-progress" />
+
       <NavBar page={page} onNavigate={navigate} />
       <main className="main">
         {page === "home" && <HomePage />}
         {page === "rush" && <RushPage />}
         {page === "philanthropy" && <PhilanthropyPage />}
         {page === "udance" && <UDancePage />}
+        {page === "highlights" && <HighlightsPage />}
         {page === "brothers" && <BrothersPage />}
       </main>
       <footer className="footer">
@@ -505,3 +505,5 @@ export default function App() {
     </div>
   );
 }
+
+
