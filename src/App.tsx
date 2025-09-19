@@ -9,6 +9,7 @@ import westmainRush from "./assets/rush-pics/westmain.jpg";
 import grottosRush from "./assets/rush-pics/grottos.jpg";
 import icecreamPic from "./assets/phila-pics/icecream.jpg";
 import pumpkinPic from "./assets/phila-pics/pumpkin.jpg";
+import ContactPhoto from "./assets/general-pics/spd-flag.jpg";
 
 import LatestEventImg from "./assets/brother-pics/tom-ingenito.jpg";
 
@@ -57,7 +58,7 @@ function NavBar({ page, onNavigate }: { page: Page; onNavigate: (p: Page) => voi
           tabIndex={0}
           aria-label="Go to Home"
         >
-          ΣΦΔ - Social Engineering Fraternity
+          ΣΦΔ, Social Engineering Fraternity
         </div>
         <nav className="nav-links">
           {links.map((l) => (
@@ -114,7 +115,7 @@ function HomePage() {
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="#/rush">See Rush Events</a>
-              <a className="btn btn-ghost" href="#/philanthropy">Our Philanthropy</a>
+              <a className="btn btn-ghost" href="#/udance">Our UDance Efforts</a>
             </div>
           </div>
         </div>
@@ -134,8 +135,8 @@ function HomePage() {
               <strong> April 11, 1999</strong> to unite engineers through professional growth, service, and brotherhood.
             </p>
             <ul className="checks">
-              <li>Founded April 11, 1999 — over 25 years serving UD students</li>
-              <li>Symbols & heritage: red/black, the Castle, and <em>Pro Bono Professionis</em></li>
+              <li>Founded April 11, 1999, over 25 years serving UD students</li>
+              <li>Symbols &amp; heritage: red/black, the Castle, and <em>Pro Bono Professionis</em></li>
               <li>Chapter traditions: professional ceremonies, study halls, and project spotlights</li>
               <li>Strong alumni network supporting internships and early careers</li>
             </ul>
@@ -143,10 +144,10 @@ function HomePage() {
           <div className="about-card">
             <h3>Impact &amp; Community</h3>
             <ul className="checks">
-              <li>UDance fundraising year-round through drives, events, and partnerships</li>
+              <li>UDance fundraising year round through drives, events, and partnerships</li>
               <li>Regular philanthropy events that support campus and local causes</li>
-              <li>Welcoming community of engineers & friends—hang out, collaborate, and study with one another</li>
-              <li>Positive Greek-life presence at UD: respect, inclusivity, and leadership by example</li>
+              <li>Welcoming community of engineers &amp; friends, hang out, collaborate, and study with one another</li>
+              <li>Positive Greek life presence at UD: respect, inclusivity, and leadership by example</li>
             </ul>
           </div>
 
@@ -163,7 +164,7 @@ function HomePage() {
               the girls in gphi. It was a great time and we all had fun.
               Connor Lockwood was there too. he's cool.
             </p>
-            <a className="btn btn-ghost" href="#/rush" aria-label="See upcoming events">
+            <a className="btn btn-special" href="#/rush" aria-label="See upcoming events">
               See Upcoming Events
             </a>
             
@@ -181,28 +182,43 @@ function HomePage() {
       </Section>
       <Section title="Contact">
         <div className="contact">
-          <div className="contact-card">
-            <h3>Get in Touch</h3>
-            <p>
-              Interested in rush, collaborating on an event, or have other questions? Reach out and we’ll get back to you.
-            </p>
-            <ul className="bulletcaret">
-              <li>
-                Email:{" "}
-                <a href="mailto:brothers@sigphipsi.com">
-                  brothers@sigphipsi.com
-                </a>
-              </li>
-              <li>
-                Instagram:{" "}
-                <a href="https://www.instagram.com/ud.spd/?hl=en" target="_blank" rel="noreferrer">
-                  @ud.spd
-                </a>
-              </li>
-            </ul>
-          </div>
+          <article className="contact-card contact-card--split">
+            <div className="split split-right-image">
+              {/* Left: text */}
+              <div className="contact-body">
+                <h3>Get in Touch</h3>
+                <p>
+                  Interested in rush, collaborating on an event, or have other questions?
+                  <br />Reach out and we’ll get back to you.
+                </p>
+
+                <ul className="bulletcaret">
+                  <li>
+                    Email:{" "}
+                    <a href="mailto:brothers@sigphipsi.com">brothers@sigphipsi.com</a>
+                  </li>
+                  <li>
+                    Instagram:{" "}
+                    <a
+                      href="https://www.instagram.com/ud.spd/?hl=en"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      @ud.spd
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Right: image */}
+              <div className="split-image contact-image">
+                <img src={ContactPhoto} alt="ΣΦΔ tabling / brothers on campus" />
+              </div>
+            </div>
+          </article>
         </div>
       </Section>
+
     </>
   );
 }
@@ -221,7 +237,7 @@ function RushPage() {
           <div className="event-grid">
             <div className="event-content">
               <h3>Classroom Event</h3>
-              <p className="muted">Wednesday, September 3<sup>rd</sup> · 7–9 PM</p>
+              <p className="muted">Wednesday, September 3<sup>rd</sup> · 7 to 9 PM</p>
               <p>Overview of our chapter, values, and Q&amp;A with the exec board.</p>
             </div>
             <div className="event-media">
@@ -233,8 +249,8 @@ function RushPage() {
           <div className="event-grid">
             <div className="event-content">
               <h3>182 West Main St</h3>
-              <p className="muted">Thursday, September 11<sup>th</sup> · 6:30–8:30 PM</p>
-              <p>Casual hang — meet brothers, grab food, and learn about rush.</p>
+              <p className="muted">Thursday, September 11<sup>th</sup> · 6:30 to 8:30 PM</p>
+              <p>Casual hang, meet brothers, grab food, and learn about rush.</p>
             </div>
             <div className="event-media">
               <img src={westmainRush} alt="182 West Main St rush event" />
@@ -245,8 +261,8 @@ function RushPage() {
           <div className="event-grid">
             <div className="event-content">
               <h3>Grotto Pizza</h3>
-              <p className="muted">Tuesday, September 16<sup>th</sup> · 6–8 PM</p>
-              <p>Meet &amp; greet over slices — talk campus life and meet others rushing.</p>
+              <p className="muted">Tuesday, September 16<sup>th</sup> · 6 to 8 PM</p>
+              <p>Meet &amp; greet over slices, talk campus life and meet others rushing.</p>
             </div>
             <div className="event-media">
               <img src={grottosRush} alt="Grotto Pizza rush event" className="obj-up" />
@@ -255,7 +271,7 @@ function RushPage() {
         </article>
 
         <p className="muted" style={{ marginTop: 8 }}>
-          Dates/times subject to change — follow us on Instagram for updates.
+          Dates/times subject to change, follow us on Instagram for updates.
         </p>
       </div>
     </Section>
@@ -277,7 +293,7 @@ function PhilanthropyPage() {
               <h3>UDairy Ice Cream Truck with GPhi 🍦🚙</h3>
               <p className="muted">Monday, September 22 · 2–4 PM</p>
               <p><strong>Location:</strong> Trabant Patio</p>
-              <p>Sweet-treat fundraiser supporting UDance — grab a cone, support a cause.</p>
+              <p>Sweet treat fundraiser supporting UDance, grab a cone, support a cause.</p>
             </div>
             <div className="event-media">
               <img src={icecreamPic} alt="UDairy Ice Cream Truck with GPhi fundraiser" />
@@ -290,8 +306,8 @@ function PhilanthropyPage() {
             <div className="event-content">
               <h3>Pumpkin Painting with Women In Healthcare 🎃👩‍⚕️</h3>
               <p className="muted">Tuesday, October 23 · Time/Location TBD</p>
-              <p><strong>Location:</strong> Likely West Main — details coming soon.</p>
-              <p>Fall-themed collab benefiting UDance and campus charities.</p>
+              <p><strong>Location:</strong> Likely West Main, details coming soon.</p>
+              <p>Fall themed collab benefiting UDance and campus charities.</p>
             </div>
             <div className="event-media">
               <img src={pumpkinPic} alt="Pumpkin Painting with Women In Healthcare" />
@@ -300,7 +316,7 @@ function PhilanthropyPage() {
         </article>
 
         <p className="muted" style={{ marginTop: 8 }}>
-          Details subject to change — follow us on Instagram for updates.
+          Details subject to change, follow us on Instagram for updates.
         </p>
       </div>
     </Section>
@@ -320,10 +336,9 @@ function UDancePage() {
     <Section title="ΣΦΔ × UDance">
       <div className="udance-intro">
         <p className="lead">
-          UDance is the University of Delaware’s year-long, student-run philanthropy benefiting
-          <strong>The Andrew McDonough B+ Foundation</strong>, which supports families of children
+          UDance is the University of Delaware’s year long, student run philanthropy benefiting
+          <strong> The Andrew McDonough B+ Foundation</strong>, which supports families of children
           with cancer and funds pediatric cancer research.
-
         </p>
         <div className="udance-points">
           <div className="about-card">
@@ -346,7 +361,7 @@ function UDancePage() {
       <div className="udance-spd card">
         <h3>ΣΦΔ’s Role</h3>
         <ul className="bulletcaret">
-          <li>Fundraising drives (food trucks, dunk tank & pie smashing, canning, etc.)</li>
+          <li>Fundraising drives (food trucks, dunk tank &amp; pie smashing, canning, etc.)</li>
           <li>Volunteering and event support throughout the year</li>
           <li>Partnering with other orgs to boost outreach and donations</li>
         </ul>
@@ -373,7 +388,7 @@ function HighlightsPage() {
   return (
     <Section title="Highlights">
       <p>
-        A running showcase of what ΣΦΔ brothers are building, researching, and achieving, on & off campus.
+        A running showcase of what ΣΦΔ brothers are building, researching, and achieving, on &amp; off campus.
         These highlights celebrate our drive, creativity, and commitment to making an impact.
       </p>
 
@@ -381,8 +396,8 @@ function HighlightsPage() {
         <article className="card event-card">
           <div className="event-grid">
             <div className="event-content">
-              <h3>HackUDel Winner — “SmartPark”</h3>
-              <p className="muted">Timespan: Feb–Mar 2025</p>
+              <h3>HackUDel Winner, “SmartPark”</h3>
+              <p className="muted">Timespan: Feb to Mar 2025</p>
               <p>
                 Team of four brothers built a computer-vision parking lot counter and a mobile app that predicts spot
                 availability in real time. Deployed a tiny YOLO model to a Raspberry Pi with on-device inference and a
@@ -394,13 +409,13 @@ function HighlightsPage() {
             </div>
           </div>
         </article>
-        <article className="card event-card">
+        <article className="cardx event-card">
           <div className="event-grid">
             <div className="event-content">
-              <h3>Co-op at DuPont — Process Engineering</h3>
+              <h3>Co-op at DuPont, Process Engineering</h3>
               <p className="muted">Timespan: Summer 2024</p>
               <p>
-                Scoped and implemented a new heat-exchange monitoring workflow that reduced downtime by 12%. Built
+                Scoped and implemented a new heat exchange monitoring workflow that reduced downtime by 12%. Built
                 an automated dashboard in Python for weekly KPI reviews and collaborated with safety to update SOPs.
               </p>
             </div>
@@ -501,7 +516,7 @@ export default function App() {
         {page === "brothers" && <BrothersPage />}
       </main>
       <footer className="footer">
-        © {new Date().getFullYear()} ΣΦΔ - Engineering Fraternity
+        © {new Date().getFullYear()} ΣΦΔ, Engineering Fraternity
       </footer>
     </div>
   );
