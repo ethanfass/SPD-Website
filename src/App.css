@@ -750,6 +750,7 @@ ul.bulletcaret, ol.bulletcaret {
 .brother-card[data-id="secretary"] .brother-photo img,
 .brother-card[data-id="social-chair-1"] .brother-photo img,
 .brother-card[data-id="social-chair-2"] .brother-photo img,
-.brother-card[data-id="new-member-educator"] .brother-photo img {
+.brother-card[data-id="new-member-educator"] .brother-photo img,
+.brother-card[data-id="dei-chair"] .brother-photo img {
   object-position: 50% 25%;
 }
