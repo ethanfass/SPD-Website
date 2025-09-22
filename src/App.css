@@ -386,11 +386,17 @@ body {
 }
 
 .brother-card {
+  box-shadow: var(--elev-2);
+  transition: box-shadow .22s ease, transform .18s ease;
   border: 1px solid black;
   border-radius: 12px;
   background: rgba(0, 0, 0, 0.035);  
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+}
+
+.brother-card:hover {
+  box-shadow: var(--elev-3);
+  transform: translateY(-2px);  
 }
 
 .brother-photo {
@@ -710,7 +716,6 @@ ul.bulletcaret, ol.bulletcaret {
 **/
 
 /* ---- Apply to your boxes ---- */
-.section,
 .card,
 .cardx,
 .about-card,
@@ -722,11 +727,29 @@ ul.bulletcaret, ol.bulletcaret {
   transition: box-shadow .22s ease, transform .18s ease;
 }
 
-.section:hover,
+
 .card:hover,
 .cardx:hover,
 .about-card:hover,
 .contact-card:hover{
   box-shadow: var(--elev-3);
   transform: translateY(-2px);        /* tiny lift on hover (optional) */
+}
+
+.urgent {
+  color: red;
+  font-weight: bold;
+}
+
+.brother-card[data-id="president"] .brother-photo img,
+.brother-card[data-id="internal-vp"] .brother-photo img,
+.brother-card[data-id="external-vp"] .brother-photo img,
+.brother-card[data-id="business-manager"] .brother-photo img,
+.brother-card[data-id="risk-chair"] .brother-photo img,
+.brother-card[data-id="philanthropy-chair"] .brother-photo img,
+.brother-card[data-id="secretary"] .brother-photo img,
+.brother-card[data-id="social-chair-1"] .brother-photo img,
+.brother-card[data-id="social-chair-2"] .brother-photo img,
+.brother-card[data-id="new-member-educator"] .brother-photo img {
+  object-position: 50% 25%;
 }
