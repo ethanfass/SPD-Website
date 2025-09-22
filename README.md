@@ -18,6 +18,8 @@ A React + TypeScript (Vite) single-page site for the University of Delaware’s 
 * Accessible keyboard nav for brand button, focus rings on links/buttons
 * Pure CSS theming via variables (`:root`) for colors, radii, shadows
 
+---
+
 ## Tech Stack
 
 * Frontend: React, TypeScript, Vite
