@@ -6,11 +6,10 @@ import InstagramFeed from "./components/InstagramFeed";
 import classroomRush from "./assets/rush-pics/classroom.jpg";
 import westmainRush from "./assets/rush-pics/westmain.jpg";
 import grottosRush from "./assets/rush-pics/grottos.jpg";
-import icecreamPic from "./assets/phila-pics/icecream.jpg";
 import pumpkinPic from "./assets/phila-pics/pumpkin.jpg";
 import ContactPhoto from "./assets/general-pics/spd-flag.jpg";
 
-import LatestEventImg from "./assets/brother-pics/tom-ingenito.jpg";
+import LatestEventImg from "./assets/phila-pics/icecream.jpg";
 
 import Udance1 from "./assets/udance-pics/udance-1.jpg";
 import UdanceBaxter from "./assets/udance-pics/udance-baxter-john.jpg";
@@ -81,6 +80,7 @@ function NavBar({ page, onNavigate }: { page: Page; onNavigate: (p: Page) => voi
           role="button"
           tabIndex={0}
           aria-label="Go to Home"
+          style={{fontSize: "17px"}}
         >
           ΣΦΔ Fraternity
         </div>
@@ -100,9 +100,9 @@ function NavBar({ page, onNavigate }: { page: Page; onNavigate: (p: Page) => voi
           ))}
         </nav>
         <div className="nav-logos">
-          <img src={spdLogo} alt="SPD logo" />
+          <img src={spdLogo} alt="SPD logo" className="outlined-img"/>
           <span className="logo-x">×</span>
-          <img src={udLogo} alt="UD logo" />
+          <img src={udLogo} alt="UD logo" className="outlined-img2"/>
         </div>
       </div>
     </header>
@@ -182,11 +182,9 @@ function HomePage() {
         <div className="contact-card">
         <div className="split split-right-image">
           <div className="split-text">
-            <h3>Something with Gphi idk</h3>
+            <h3>UDairy Ice Cream Truck with GPhi 🍦</h3>
             <p>
-              Brothers were chilling and casually doing some fundraising for
-              the girls in gphi. It was a great time and we all had fun.
-              Connor Lockwood was there too. he's cool.
+              SPD brothers and GPhi sisters teamed up with UDairy to sell ice cream outside Trabant Food Court. The event gave students a chance to grab a treat while supporting our UDance charity efforts.
             </p>
             <a className="btn btn-special" href="#/rush" aria-label="See upcoming events">
               See Upcoming Events
@@ -250,12 +248,13 @@ function HomePage() {
 function RushPage() {
   return (
     <Section title="Rush Events">
-      <p>
-        Interested in joining? Come meet the brothers and learn what ΣΦΔ is all about. Events are
-        open to all majors with a passion for brotherhood and community.
-      </p>
-      <p className="urgent">Rush for the fall 2025 semester has ended. Check back next semester for updates!</p>
-
+      <div className="lead">
+        <p>
+          Interested in joining? Come meet the brothers and learn what ΣΦΔ is all about. Events are
+          open to all majors with a passion for brotherhood and community.
+        </p>
+        <p className="urgent">Rush for the fall 2025 semester has ended. Check back next semester for updates!</p>
+      </div>
       <div className="event-stack">
         <article className="card event-card">
           <div className="event-grid">
@@ -286,7 +285,7 @@ function RushPage() {
             <div className="event-content">
               <h3>Grotto Pizza</h3>
               <p className="muted">Tuesday, September 16<sup>th</sup> · 6 to 8 PM</p>
-              <p>Meet &amp; greet over slices, talk campus life and meet others rushing.</p>
+              <p>Meet &amp; greet over pizza, talk campus life and meet others rushing.</p>
             </div>
             <div className="event-media">
               <img src={grottosRush} alt="Grotto Pizza rush event" className="obj-up" />
@@ -305,27 +304,13 @@ function RushPage() {
 function PhilanthropyPage() {
   return (
     <Section title="Philanthropy & Outreach">
-      <p>
+      <p className="lead">
         We give back through campus philanthropy and community outreach. Join us at these events
         and help us support UDance and local causes.
       </p>
 
       <div className="event-stack">
         <article className="cardx event-card">
-          <div className="event-grid">
-            <div className="event-content">
-              <h3>UDairy Ice Cream Truck with GPhi 🍦</h3>
-              <p className="muted">Monday, September 22 · 2–4 PM</p>
-              <p><strong>Location:</strong> Trabant Patio</p>
-              <p>Sweet treat fundraiser supporting UDance, grab a cone, support a cause.</p>
-            </div>
-            <div className="event-media">
-              <img src={icecreamPic} alt="UDairy Ice Cream Truck with GPhi fundraiser" />
-            </div>
-          </div>
-        </article>
-
-        <article className="card event-card">
           <div className="event-grid">
             <div className="event-content">
               <h3>Pumpkin Painting with Women In Healthcare 🎃</h3>
@@ -407,8 +392,8 @@ function UDancePage() {
 
 function HighlightsPage() {
   return (
-    <Section title="Highlights">
-      <p>
+    <Section title="Brother Highlights">
+      <p className="lead">
         A running showcase of what ΣΦΔ brothers are building, researching, and achieving, on &amp; off campus.
         These highlights celebrate our drive, creativity, and commitment to making an impact.
       </p>
@@ -471,21 +456,22 @@ const BROTHERS: Brother[] = [
   { id: "risk-chair", name: "Will Hastings", role: "Risk Chair", classYear: "Junior", photoUrl: WillHastingsPic, rushClass: "Beta-Chi"},
   { id: "philanthropy-chair", name: "Baxter Gallagher", role: "Philanthropy Chair", classYear: "Junior", photoUrl: BaxterGallagherPic, rushClass: "Beta-Phi"},
   { id: "secretary", name: "Teddy Romanowski", role: "Secretary", classYear: "Junior", photoUrl: TeddyRomanowskiPic, rushClass: "Beta-Chi"},
-  { id: "social-chair-1", name: "Gregg Marella", role: "Social Chair #1", classYear: "Senior", photoUrl: GreggMarellaPic, rushClass: "Beta-Upsilon"},
-  { id: "social-chair-2", name: "Eddie Badolato", role: "Social Chair #2", classYear: "Senior", photoUrl: EddieBadolatoPic, rushClass: "Beta-Phi"},
+  { id: "social-chair-1", name: "Gregg Marella", role: "Social Chair", classYear: "Senior", photoUrl: GreggMarellaPic, rushClass: "Beta-Upsilon"},
+  { id: "social-chair-2", name: "Eddie Badolato", role: "Social Chair", classYear: "Senior", photoUrl: EddieBadolatoPic, rushClass: "Beta-Phi"},
   { id: "new-member-educator", name: "Paul Edelman", role: "New Member Educator", classYear: "Junior", photoUrl: PaulEdelmanPic, rushClass: "Beta-Phi"},
   { id: "assistant-new-member-educator", name: "Tyler Urie", role: "Assistant New Member Educator", classYear: "Senior", photoUrl: "", rushClass: "Beta-Upsilon"},
-  { id: "chaplain", name: "Tom Ingenito", role: "Chaplain/Unique Chair", classYear: "Junior", photoUrl: TomIngenitoPic, rushClass: "Beta-Phi"},
-  { id: "dei-chair", name: "Connor Lockwood", role: "DEI Chair", classYear: "Senior", photoUrl: ConnorLockwoodPic, rushClass: "Beta-Phi"},
   { id: "accreditation-chair", name: "Jack Carr", role: "Accreditation Chair", classYear: "Junior", photoUrl: JackCarrPic, rushClass: "Beta-Phi"},
+  { id: "dei-chair", name: "Connor Lockwood", role: "DEI Chair", classYear: "Senior", photoUrl: ConnorLockwoodPic, rushClass: "Beta-Phi"},
+  { id: "chaplain", name: "Tom Ingenito", role: "Chaplain/Unique Chair", classYear: "Junior", photoUrl: TomIngenitoPic, rushClass: "Beta-Phi"},
+  { id: "im-chair", name: "Ethan Fassnacht", role: "Intramural Chair", classYear: "Senior", photoUrl: "", rushClass: "Beta-Phi"},
   //{ id: "rush-chair-1", name: "Kyle Burke", role: "Rush Chair #1", classYear: "Sophomore", photoUrl: "", rushClass: "Beta-Psi"},
   //{ id: "rush-chair-2", name: "Tim Scott", role: "Rush Chair #2", classYear: "Sophomore", photoUrl: "", rushClass: "Beta-Omega"},
 ];
 
 function BrothersPage() {
   return (
-    <Section title="Brothers">
-      <p>Meet the brothers proudly serving on the 2024–2025 SPD Executive Board.</p>
+    <Section title="Brother List">
+      <p className="lead">Meet the brothers proudly serving on the 2024–2025 SPD Executive Board.</p>
       <div className="brother-grid">
         {BROTHERS.map((b) => (
           <div key={b.id} className="brother-card" data-id={b.id}>

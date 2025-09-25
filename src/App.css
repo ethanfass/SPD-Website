@@ -56,7 +56,7 @@ body {
 
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: rgba(0,0,0,.8);
+  background: rgba(0,0,0,.85);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255,255,255,.08);
@@ -76,21 +76,25 @@ body {
   border:2px solid #ff8080;
   padding:6px 12px;
   border-radius:999px;
-  transition:border-color .2s ease, box-shadow .2s ease;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease, transform .15s ease;
   font-weight: bold;
+
 }
 .brand.brand--ring:hover{
   border-color: var(--brand-2);
   box-shadow: 0 0 0 3px rgba(255,0,0,.15);
+  transform: translateY(-1px);
+  
 }
 
-.nav-links { gap: 14px; }
+.nav-links { gap: 14px; font-weight: 500; }
 
 .btn-special{
   transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
   border-radius: 999px;
   font-weight: 700;
   display: inline-flex; align-items: center; gap: .5rem;
+  transform: translateY(-1px);
 }
 .btn-special:focus-visible{
   outline: none;
@@ -115,7 +119,7 @@ body {
   border-radius: 999px;
   color: #fff;
   text-decoration: none;
-  opacity: .92;
+  opacity: 1;
   transition: background .2s ease, transform .15s ease;
 }
 
