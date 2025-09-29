@@ -34,6 +34,7 @@ import WillHastingsPic from "./assets/brother-pics/will-hastings.png";
 import JackCarrPic from "./assets/brother-pics/jack-carr.jpeg";
 import PaulEdelmanPic from "./assets/brother-pics/paul-edelman.png";
 import ConnorLockwoodPic from "./assets/brother-pics/connor-lockwood.jpg";
+import BrandonTaubPic from "./assets/brother-pics/brandon-taub.jpg";
 
 
 type Page = "home" | "rush" | "philanthropy" | "udance" | "highlights" | "brothers";
@@ -135,7 +136,7 @@ function HomePage() {
           <div className="hero-panel">          {/* ← add this */}
             <h1 className="hero-title">Sigma Phi Delta</h1>
             <p className="hero-subtitle">
-              A social fraternity with an engineering focus from the University of Delaware.
+              A fraternity with an engineering focus at UD.
             </p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="#/rush">See Rush Events</a>
@@ -464,6 +465,7 @@ const BROTHERS: Brother[] = [
   { id: "dei-chair", name: "Connor Lockwood", role: "DEI Chair", classYear: "Senior", photoUrl: ConnorLockwoodPic, rushClass: "Beta-Phi"},
   { id: "chaplain", name: "Tom Ingenito", role: "Chaplain/Unique Chair", classYear: "Junior", photoUrl: TomIngenitoPic, rushClass: "Beta-Phi"},
   { id: "im-chair", name: "Ethan Fassnacht", role: "Intramural Chair", classYear: "Senior", photoUrl: "", rushClass: "Beta-Phi"},
+  { id: "inquisitor", name: "Brandon Taub", role: "Inquisitor", classYear: "Junior", photoUrl: BrandonTaubPic, rushClass: "Beta-Phi"},
   //{ id: "rush-chair-1", name: "Kyle Burke", role: "Rush Chair #1", classYear: "Sophomore", photoUrl: "", rushClass: "Beta-Psi"},
   //{ id: "rush-chair-2", name: "Tim Scott", role: "Rush Chair #2", classYear: "Sophomore", photoUrl: "", rushClass: "Beta-Omega"},
 ];

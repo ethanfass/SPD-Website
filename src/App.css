@@ -22,6 +22,8 @@
   --elev-2: 0 12px 26px -6px rgba(0,0,0,.14), 0 2px 8px rgba(0,0,0,.06);
   --elev-3: 0 18px 40px -8px rgba(0,0,0,.18), 0 6px 16px rgba(0,0,0,.10);
   --elev-accent: 0 10px 24px rgba(255,0,0,.07);
+  --radius: 14px;
+  --card-bw: 1px;
 }
 
 * { box-sizing: border-box; }
@@ -219,6 +221,7 @@ body {
   margin: 8px 0 14px;
   opacity: .95;
   text-shadow: 0 1px 10px rgba(0,0,0,.35);
+  font-size: 22px;
 }
 
 .hero-actions { display: flex; gap: 10px; }
@@ -343,25 +346,21 @@ body {
   margin: 16px 0;
 }
 
-.card {
-  border: 1px solid black;
-  border-radius: 12px;
+.card{
+  border: var(--card-bw) solid black;
+  border-radius: var(--radius);
   background: rgba(0, 0, 0, 0.035);
-
-  padding: 14px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+  padding: 0; /* event-card already sets 0; keep it 0 here too */
 }
 
 .card h3 { margin: 0 0 6px 0; font-size: 18px; }
 
-.cardx {
-  border: 1px solid red;
-  border-radius: 12px;
+.cardx{
+  border: var(--card-bw) solid red;
+  border-radius: var(--radius);
   background: #fff5f5;
-  padding: 14px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+  padding: 0; /* event-card already sets 0; keep it 0 here too */
 }
-
 .cardx h3 { margin: 0 0 6px 0; font-size: 18px; }
 
 .insta-grid {
@@ -506,16 +505,25 @@ body {
 
 .event-content h3 { margin: 0 0 6px 0; font-size: 20px; }
 
-.event-media {
+/* Only the right side of the media is rounded */
+.event-media{
   height: var(--event-img-h);
   align-self: start;
+  overflow: hidden;
+  border-radius: 0 calc(var(--radius) - var(--card-bw))
+                   calc(var(--radius) - var(--card-bw)) 0; /* TL TR BR BL */
 }
-.event-media img {
+
+/* make sure the img itself isn't adding its own rounding */
+.event-media img{
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 0;
+  transform: translateX(0.5px);
 }
+
 
 .event-media img.obj-up { object-position: 50% 16%; }
 
@@ -755,6 +763,7 @@ ul.bulletcaret, ol.bulletcaret {
 .brother-card[data-id="social-chair-1"] .brother-photo img,
 .brother-card[data-id="social-chair-2"] .brother-photo img,
 .brother-card[data-id="new-member-educator"] .brother-photo img,
-.brother-card[data-id="dei-chair"] .brother-photo img {
+.brother-card[data-id="dei-chair"] .brother-photo img,
+.brother-card[data-id="inquisitor"] .brother-photo img{
   object-position: 50% 25%;
 }
