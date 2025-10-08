@@ -9,7 +9,8 @@ import grottosRush from "./assets/rush-pics/grottos.jpg";
 import pumpkinPic from "./assets/phila-pics/pumpkin.jpg";
 import ContactPhoto from "./assets/general-pics/spd-flag.jpg";
 
-import LatestEventImg from "./assets/phila-pics/icecream.jpg";
+import LatestEventImg from "./assets/phila-pics/perkins.jpg";
+import icecreamPic from "./assets/phila-pics/icecream.jpg";
 
 import Udance1 from "./assets/udance-pics/udance-1.jpg";
 import UdanceBaxter from "./assets/udance-pics/udance-baxter-john.jpg";
@@ -181,23 +182,26 @@ function HomePage() {
       </Section>
       <Section title="Latest Event">
         <div className="contact-card">
-        <div className="split split-right-image">
-          <div className="split-text">
-            <h3>UDairy Ice Cream Truck with GPhi 🍦</h3>
-            <p>
-              SPD brothers and GPhi sisters teamed up with UDairy to sell ice cream outside Trabant Food Court. The event gave students a chance to grab a treat while supporting our UDance charity efforts.
-            </p>
-            <a className="btn btn-special" href="#/rush" aria-label="See upcoming events">
-              See Upcoming Events
-            </a>
-            
+          <div className="split split-right-image">
+            <div className="split-text">
+              <h3>SPD × GPhi × Phi Tau Dunkin’ Donuts & Coffee Sale ☕🍩</h3>
+              <p>
+                Brothers of SPD, sisters of GPhi, and brothers of Phi Tau joined forces
+                for a Dunkin’ Donuts and coffee sale at Perkins Student Center. Students
+                grabbed their morning pick-me-up while helping raise funds in support of
+                UDance and local causes.
+              </p>
+              <a className="btn btn-special" href="#/rush" aria-label="See upcoming events">
+                See Upcoming Events
+              </a>
+            </div>
+            <div className="split-image">
+              <img src={LatestEventImg} alt="SPD × GPhi × Phi Tau Dunkin’ Donuts and Coffee Sale at Perkins" />
+            </div>
           </div>
-          <div className="split-image">
-            <img src={LatestEventImg} alt="Recent ΣΦΔ engineering showcase" />
-          </div>
-        </div>
         </div>
       </Section>
+
       <Section title="Instagram">
         <div className="about-card">
           <InstagramFeed />
@@ -304,34 +308,63 @@ function RushPage() {
 
 function PhilanthropyPage() {
   return (
-    <Section title="Philanthropy & Outreach">
-      <p className="lead">
-        We give back through campus philanthropy and community outreach. Join us at these events
-        and help us support UDance and local causes.
-      </p>
-
-      <div className="event-stack">
-        <article className="cardx event-card">
-          <div className="event-grid">
-            <div className="event-content">
-              <h3>Pumpkin Painting with Women In Healthcare 🎃</h3>
-              <p className="muted">Tuesday, October 23 · Time TBD</p>
-              <p><strong>Location:</strong> 182 West Main Street</p>
-              <p>Fall themed collab benefiting UDance and campus charities.</p>
-            </div>
-            <div className="event-media">
-              <img src={pumpkinPic} alt="Pumpkin Painting with Women In Healthcare" />
-            </div>
-          </div>
-        </article>
-
-        <p className="muted" style={{ marginTop: 8 }}>
-          Details subject to change, follow us on Instagram @ud.spd for updates.
+    <>
+      <Section title="Philanthropy & Outreach">
+        <p className="lead">
+          We give back through campus philanthropy and community outreach. Join us at these events
+          and help us support UDance and local causes.
         </p>
-      </div>
-    </Section>
+
+        <div className="event-stack">
+          <article className="cardx event-card">
+            <div className="event-grid">
+              <div className="event-content">
+                <h3>Pumpkin Painting with Women In Healthcare 🎃</h3>
+                <p className="muted">Tuesday, October 23 · Time TBD</p>
+                <p><strong>Location:</strong> 182 West Main Street</p>
+                <p>Fall themed collab benefiting UDance and campus charities.</p>
+              </div>
+              <div className="event-media">
+                <img src={pumpkinPic} alt="Pumpkin Painting with Women In Healthcare" />
+              </div>
+            </div>
+          </article>
+
+          <p className="muted" style={{ marginTop: 8 }}>
+            Details subject to change, follow us on Instagram @ud.spd for updates.
+          </p>
+        </div>
+      </Section>
+
+      <Section title="Previous Philanthropy Events">
+        <p className="lead">
+          A look back at some of our recent philanthropy and outreach efforts that brought
+          the community together and supported great causes.
+        </p>
+
+        <div className="event-stack">
+          <article className="card event-card">
+            <div className="event-grid">
+              <div className="event-content">
+                <h3>UDairy Ice Cream Truck with GPhi 🍦</h3>
+                <p className="muted">Fall 2025 · Outside Trabant Food Court</p>
+                <p>
+                  SPD brothers and GPhi sisters teamed up with UDairy to sell ice cream
+                  outside Trabant. The event gave students a chance to grab a treat while
+                  supporting our UDance charity efforts.
+                </p>
+              </div>
+              <div className="event-media">
+                <img src={icecreamPic} alt="UDairy Ice Cream Truck with GPhi" />
+              </div>
+            </div>
+          </article>
+        </div>
+      </Section>
+    </>
   );
 }
+
 
 const UDANCE_PICS = [UdanceTiny, UdanceDogs, UdanceEvent, UdanceBaxter, UdanceStef, UdanceJared, UdanceTim, Udance1, UdanceCharlie];
 
