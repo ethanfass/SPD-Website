@@ -1,6 +1,8 @@
 import instaPost1 from "../assets/instagram/insta1.jpg";
-import instaPost2 from "../assets/instagram/insta2.jpg";
-import instaPost3 from "../assets/instagram/insta3.jpg";
+//import instaPost2 from "../assets/instagram/insta2.jpg";
+//import instaPost3 from "../assets/instagram/insta3.jpg";
+import instaPost4 from "../assets/instagram/insta4.jpg";
+import instaPost5 from "../assets/instagram/insta5.jpg";
 
 type Post = {
   id: string;
@@ -12,21 +14,21 @@ type Post = {
 const POSTS: Post[] = [
   {
     id: "1",
-    img: instaPost1,
-    link: "https://www.instagram.com/p/DNYTePKt07q/?img_index=1",
-    alt: "Rush event",
+    img: instaPost5,
+    link: "https://www.instagram.com/p/DPZ_yThjDKA/",
+    alt: "Parents Weekend",
   },
   {
     id: "2",
-    img: instaPost2,
-    link: "https://www.instagram.com/p/DKLJm8MtPj9/?img_index=1",
-    alt: "Project showcase",
+    img: instaPost4,
+    link: "https://www.instagram.com/p/DPKkN1UDIJN/",
+    alt: "Gamma Alpha",
   },
   {
     id: "3",
-    img: instaPost3,
-    link: "https://www.instagram.com/p/DJidOyrMDQJ/",
-    alt: "Service event",
+    img: instaPost1,
+    link: "https://www.instagram.com/p/DNYTePKt07q/?img_index=1",
+    alt: "Rush Chairs",
   },
 ];
 

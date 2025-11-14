@@ -11,13 +11,14 @@ import ContactPhoto from "./assets/general-pics/spd-flag.jpg";
 
 import LatestEventImg from "./assets/phila-pics/perkins.jpg";
 import icecreamPic from "./assets/phila-pics/icecream.jpg";
+import DubaiChocImg from "./assets/phila-pics/dubaichoc.jpg";
 
 import Udance1 from "./assets/udance-pics/udance-1.jpg";
 import UdanceBaxter from "./assets/udance-pics/udance-baxter-john.jpg";
 import UdanceCharlie from "./assets/udance-pics/udance-charlie.jpg";
 import UdanceDogs from "./assets/udance-pics/udance-dogs.jpg";
-import UdanceEvent from "./assets/udance-pics/udance-event.jpg"
-import UdanceJared from "./assets/udance-pics/udance-jared.jpg"
+import UdanceEvent from "./assets/udance-pics/udance-event.jpg";
+import UdanceJared from "./assets/udance-pics/udance-jared.jpg";
 import UdanceStef from "./assets/udance-pics/udance-stef.jpg";
 import UdanceTim from "./assets/udance-pics/udance-tim.jpg";
 import UdanceTiny from "./assets/udance-pics/udance-tiny.jpg";
@@ -36,7 +37,6 @@ import JackCarrPic from "./assets/brother-pics/jack-carr.jpeg";
 import PaulEdelmanPic from "./assets/brother-pics/paul-edelman.png";
 import ConnorLockwoodPic from "./assets/brother-pics/connor-lockwood.jpg";
 import BrandonTaubPic from "./assets/brother-pics/brandon-taub.jpg";
-
 
 type Page = "home" | "rush" | "philanthropy" | "udance" | "highlights" | "brothers";
 
@@ -78,11 +78,13 @@ function NavBar({ page, onNavigate }: { page: Page; onNavigate: (p: Page) => voi
         <div
           className="brand brand--ring border"
           onClick={() => onNavigate("home")}
-          onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onNavigate("home"); }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") onNavigate("home");
+          }}
           role="button"
           tabIndex={0}
           aria-label="Go to Home"
-          style={{fontSize: "17px"}}
+          style={{ fontSize: "17px" }}
         >
           ΣΦΔ Fraternity
         </div>
@@ -102,9 +104,9 @@ function NavBar({ page, onNavigate }: { page: Page; onNavigate: (p: Page) => voi
           ))}
         </nav>
         <div className="nav-logos">
-          <img src={spdLogo} alt="SPD logo" className="outlined-img"/>
+          <img src={spdLogo} alt="SPD logo" className="outlined-img" />
           <span className="logo-x">×</span>
-          <img src={udLogo} alt="UD logo" className="outlined-img2"/>
+          <img src={udLogo} alt="UD logo" className="outlined-img2" />
         </div>
       </div>
     </header>
@@ -134,14 +136,18 @@ function HomePage() {
       <div className="hero">
         <div className="hero-overlay" />
         <div className="hero-content container">
-          <div className="hero-panel">          {/* ← add this */}
+          <div className="hero-panel">
             <h1 className="hero-title">Sigma Phi Delta</h1>
             <p className="hero-subtitle">
               A fraternity with an engineering focus at UD.
             </p>
             <div className="hero-actions">
-              <a className="btn btn-primary" href="#/rush">See Rush Events</a>
-              <a className="btn btn-ghost" href="#/udance">Our UDance Efforts</a>
+              <a className="btn btn-primary" href="#/rush">
+                See Rush Events
+              </a>
+              <a className="btn btn-ghost" href="#/udance">
+                Our UDance Efforts
+              </a>
             </div>
           </div>
         </div>
@@ -162,7 +168,10 @@ function HomePage() {
             </p>
             <ul className="checks">
               <li>Founded April 11, 1999, over 25 years serving UD students</li>
-              <li>Symbols &amp; heritage: red/black, the Castle, and <em>Pro Bono Professionis</em> (for the good of the profession)</li>
+              <li>
+                Symbols &amp; heritage: red/black, the Castle, and <em>Pro Bono Professionis</em> (for the good of
+                the profession)
+              </li>
               <li>Chapter traditions: professional ceremonies, study halls, and project spotlights</li>
               <li>Strong alumni network supporting internships and early careers</li>
             </ul>
@@ -176,27 +185,32 @@ function HomePage() {
               <li>Positive Greek life presence at UD: respect, inclusivity, and leadership by example</li>
             </ul>
           </div>
-
-
         </div>
       </Section>
+
+      {/* Neutral "Latest Event" template */}
       <Section title="Latest Event">
         <div className="contact-card">
           <div className="split split-right-image">
             <div className="split-text">
-              <h3>SPD × GPhi × Phi Tau Dunkin’ Donuts & Coffee Sale ☕🍩</h3>
+              <h3>SPD x ChiO Dubai Chocolate Event</h3>
               <p>
-                Brothers of SPD, sisters of GPhi, and brothers of Phi Tau joined forces
-                for a Dunkin’ Donuts and coffee sale at Perkins Student Center. Students
-                grabbed their morning pick-me-up while helping raise funds in support of
-                UDance and local causes.
+                Brothers of SPD and sisters of Chi Omega collaborated on a Dubai Chocolate sale, with all proceeds supporting UDance and other philanthropic efforts.
               </p>
-              <a className="btn btn-special" href="#/rush" aria-label="See upcoming events">
-                See Upcoming Events
+              <a
+                className="btn btn-special"
+                href="#/philanthropy"
+                aria-label="View past philanthropy events"
+              >
+                View Past Philanthropy Events
               </a>
             </div>
             <div className="split-image">
-              <img src={LatestEventImg} alt="SPD × GPhi × Phi Tau Dunkin’ Donuts and Coffee Sale at Perkins" />
+              {/* Placeholder image – swap this out whenever you want */}
+              <img
+                src={DubaiChocImg}
+                alt="Sigma Phi Delta philanthropy event placeholder"
+              />
             </div>
           </div>
         </div>
@@ -216,7 +230,8 @@ function HomePage() {
                 <h3>Get in Touch</h3>
                 <p>
                   Interested in rush, collaborating on an event, or have other questions?
-                  <br />Reach out and we’ll get back to you.
+                  <br />
+                  Reach out and we’ll get back to you.
                 </p>
 
                 <ul className="bulletcaret">
@@ -245,7 +260,6 @@ function HomePage() {
           </article>
         </div>
       </Section>
-
     </>
   );
 }
@@ -258,14 +272,18 @@ function RushPage() {
           Interested in joining? Come meet the brothers and learn what ΣΦΔ is all about. Events are
           open to all majors with a passion for brotherhood and community.
         </p>
-        <p className="urgent">Rush for the fall 2025 semester has ended. Check back next semester for updates!</p>
+        <p className="urgent">
+          Rush for the fall 2025 semester has ended. Check back next semester for updates!
+        </p>
       </div>
       <div className="event-stack">
         <article className="card event-card">
           <div className="event-grid">
             <div className="event-content">
               <h3>Classroom Event</h3>
-              <p className="muted">Wednesday, September 3<sup>rd</sup> · 7 to 9 PM</p>
+              <p className="muted">
+                Wednesday, September 3<sup>rd</sup> · 7 to 9 PM
+              </p>
               <p>Overview of our chapter, values, and Q&amp;A with the exec board.</p>
             </div>
             <div className="event-media">
@@ -277,7 +295,9 @@ function RushPage() {
           <div className="event-grid">
             <div className="event-content">
               <h3>182 West Main St</h3>
-              <p className="muted">Thursday, September 11<sup>th</sup> · 6:30 to 8:30 PM</p>
+              <p className="muted">
+                Thursday, September 11<sup>th</sup> · 6:30 to 8:30 PM
+              </p>
               <p>Casual hang, meet brothers, grab food, and learn about rush.</p>
             </div>
             <div className="event-media">
@@ -289,7 +309,9 @@ function RushPage() {
           <div className="event-grid">
             <div className="event-content">
               <h3>Grotto Pizza</h3>
-              <p className="muted">Tuesday, September 16<sup>th</sup> · 6 to 8 PM</p>
+              <p className="muted">
+                Tuesday, September 16<sup>th</sup> · 6 to 8 PM
+              </p>
               <p>Meet &amp; greet over pizza, talk campus life and meet others rushing.</p>
             </div>
             <div className="event-media">
@@ -315,25 +337,11 @@ function PhilanthropyPage() {
           and help us support UDance and local causes.
         </p>
 
-        <div className="event-stack">
-          <article className="cardx event-card">
-            <div className="event-grid">
-              <div className="event-content">
-                <h3>Pumpkin Painting with Women In Healthcare 🎃</h3>
-                <p className="muted">Tuesday, October 23 · Time TBD</p>
-                <p><strong>Location:</strong> 182 West Main Street</p>
-                <p>Fall themed collab benefiting UDance and campus charities.</p>
-              </div>
-              <div className="event-media">
-                <img src={pumpkinPic} alt="Pumpkin Painting with Women In Healthcare" />
-              </div>
-            </div>
-          </article>
-
-          <p className="muted" style={{ marginTop: 8 }}>
-            Details subject to change, follow us on Instagram @ud.spd for updates.
-          </p>
-        </div>
+        {/* No upcoming events right now */}
+        <p className="muted" style={{ marginTop: 8 }}>
+          We don&apos;t have any upcoming philanthropy events scheduled at the moment. Check back
+          soon and follow us on Instagram <strong>@ud.spd</strong> for announcements.
+        </p>
       </Section>
 
       <Section title="Previous Philanthropy Events">
@@ -343,6 +351,45 @@ function PhilanthropyPage() {
         </p>
 
         <div className="event-stack">
+          {/* 1. Pumpkin Painting (most recent) */}
+          <article className="card event-card">
+            <div className="event-grid">
+              <div className="event-content">
+                <h3>Pumpkin Painting with Women In Healthcare 🎃</h3>
+                <p className="muted">Fall 2025 · 182 West Main Street</p>
+                <p>
+                  A fall-themed collab with Women In Healthcare where students painted pumpkins,
+                  hung out, and helped raise money benefiting UDance and campus charities.
+                </p>
+              </div>
+              <div className="event-media">
+                <img src={pumpkinPic} alt="Pumpkin Painting with Women In Healthcare" />
+              </div>
+            </div>
+          </article>
+
+          {/* 2. Coffee sale from the old HomePage "Latest Event" */}
+          <article className="cardx event-card">
+            <div className="event-grid">
+              <div className="event-content">
+                <h3>SPD × GPhi × Phi Tau Dunkin&apos; Donuts &amp; Coffee Sale ☕🍩</h3>
+                <p className="muted">Fall 2025 · Perkins Student Center</p>
+                <p>
+                  Brothers of SPD, sisters of GPhi, and brothers of Phi Tau teamed up for a Dunkin&apos;
+                  Donuts and coffee sale at Perkins. Students grabbed their morning pick-me-up while
+                  helping raise funds in support of UDance and local causes.
+                </p>
+              </div>
+              <div className="event-media">
+                <img
+                  src={LatestEventImg}
+                  alt="SPD × GPhi × Phi Tau Dunkin’ Donuts and coffee sale at Perkins"
+                />
+              </div>
+            </div>
+          </article>
+
+          {/* 3. UDairy Ice Cream Truck (keep this at the bottom) */}
           <article className="card event-card">
             <div className="event-grid">
               <div className="event-content">
@@ -365,8 +412,17 @@ function PhilanthropyPage() {
   );
 }
 
-
-const UDANCE_PICS = [UdanceTiny, UdanceDogs, UdanceEvent, UdanceBaxter, UdanceStef, UdanceJared, UdanceTim, Udance1, UdanceCharlie];
+const UDANCE_PICS = [
+  UdanceTiny,
+  UdanceDogs,
+  UdanceEvent,
+  UdanceBaxter,
+  UdanceStef,
+  UdanceJared,
+  UdanceTim,
+  Udance1,
+  UdanceCharlie,
+];
 
 const LAST_YEAR_SPD_TOTAL = "$15,075";
 
@@ -411,14 +467,14 @@ function UDancePage() {
       </div>
       <br />
       <div className="about-card">
-      <h3>UDance & Other Philanthropy Photos</h3>
-      <div className="udance-collage">
-        {UDANCE_PICS.map((src, i) => (
-          <div key={i} className="udance-tile">
-            <img src={src} alt={`UDance collage ${i + 1}`} />
-          </div>
-        ))}
-      </div>
+        <h3>UDance &amp; Other Philanthropy Photos</h3>
+        <div className="udance-collage">
+          {UDANCE_PICS.map((src, i) => (
+            <div key={i} className="udance-tile">
+              <img src={src} alt={`UDance collage ${i + 1}`} />
+            </div>
+          ))}
+        </div>
       </div>
     </Section>
   );
@@ -471,7 +527,14 @@ function HighlightsPage() {
 
 type ClassYear = "Freshman" | "Sophomore" | "Junior" | "Senior" | "Alumni";
 
-type RushClass = "Beta-Tau" | "Beta-Upsilon" | "Beta-Phi" | "Beta-Chi" | "Beta-Psi" | "Beta-Omega" | "Gamma-Alpha";
+type RushClass =
+  | "Beta-Tau"
+  | "Beta-Upsilon"
+  | "Beta-Phi"
+  | "Beta-Chi"
+  | "Beta-Psi"
+  | "Beta-Omega"
+  | "Gamma-Alpha";
 
 type Brother = {
   id: string;
@@ -483,24 +546,136 @@ type Brother = {
 };
 
 const BROTHERS: Brother[] = [
-  { id: "president", name: "Khai McCaskill", role: "President", classYear: "Senior", photoUrl: KhaiMccaskillPic, rushClass: "Beta-Tau"},
-  { id: "internal-vp", name: "Shawn Saxon", role: "Internal Vice President", classYear: "Senior", photoUrl: ShawnSaxonPic, rushClass: "Beta-Upsilon"},
-  { id: "external-vp", name: "Stef Rabeno", role: "External Vice President", classYear: "Senior", photoUrl: StefRabenoPic, rushClass: "Beta-Tau"},
-  { id: "business-manager", name: "AJ Nash", role: "Business Manager", classYear: "Senior", photoUrl: AjNashPic, rushClass: "Beta-Upsilon"},
-  { id: "risk-chair", name: "Will Hastings", role: "Risk Chair", classYear: "Junior", photoUrl: WillHastingsPic, rushClass: "Beta-Chi"},
-  { id: "philanthropy-chair", name: "Baxter Gallagher", role: "Philanthropy Chair", classYear: "Junior", photoUrl: BaxterGallagherPic, rushClass: "Beta-Phi"},
-  { id: "secretary", name: "Teddy Romanowski", role: "Secretary", classYear: "Junior", photoUrl: TeddyRomanowskiPic, rushClass: "Beta-Chi"},
-  { id: "social-chair-1", name: "Gregg Marella", role: "Social Chair", classYear: "Senior", photoUrl: GreggMarellaPic, rushClass: "Beta-Upsilon"},
-  { id: "social-chair-2", name: "Eddie Badolato", role: "Social Chair", classYear: "Senior", photoUrl: EddieBadolatoPic, rushClass: "Beta-Phi"},
-  { id: "new-member-educator", name: "Paul Edelman", role: "New Member Educator", classYear: "Junior", photoUrl: PaulEdelmanPic, rushClass: "Beta-Phi"},
-  { id: "assistant-new-member-educator", name: "Tyler Urie", role: "Assistant New Member Educator", classYear: "Senior", photoUrl: "", rushClass: "Beta-Upsilon"},
-  { id: "accreditation-chair", name: "Jack Carr", role: "Accreditation Chair", classYear: "Junior", photoUrl: JackCarrPic, rushClass: "Beta-Phi"},
-  { id: "dei-chair", name: "Connor Lockwood", role: "DEI Chair", classYear: "Senior", photoUrl: ConnorLockwoodPic, rushClass: "Beta-Phi"},
-  { id: "chaplain", name: "Tom Ingenito", role: "Chaplain/Unique Chair", classYear: "Junior", photoUrl: TomIngenitoPic, rushClass: "Beta-Phi"},
-  { id: "im-chair", name: "Ethan Fassnacht", role: "Intramural Chair", classYear: "Senior", photoUrl: "", rushClass: "Beta-Phi"},
-  { id: "inquisitor", name: "Brandon Taub", role: "Inquisitor", classYear: "Junior", photoUrl: BrandonTaubPic, rushClass: "Beta-Phi"},
-  //{ id: "rush-chair-1", name: "Kyle Burke", role: "Rush Chair #1", classYear: "Sophomore", photoUrl: "", rushClass: "Beta-Psi"},
-  //{ id: "rush-chair-2", name: "Tim Scott", role: "Rush Chair #2", classYear: "Sophomore", photoUrl: "", rushClass: "Beta-Omega"},
+  {
+    id: "president",
+    name: "Khai McCaskill",
+    role: "President",
+    classYear: "Senior",
+    photoUrl: KhaiMccaskillPic,
+    rushClass: "Beta-Tau",
+  },
+  {
+    id: "internal-vp",
+    name: "Shawn Saxon",
+    role: "Internal Vice President",
+    classYear: "Senior",
+    photoUrl: ShawnSaxonPic,
+    rushClass: "Beta-Upsilon",
+  },
+  {
+    id: "external-vp",
+    name: "Stef Rabeno",
+    role: "External Vice President",
+    classYear: "Senior",
+    photoUrl: StefRabenoPic,
+    rushClass: "Beta-Tau",
+  },
+  {
+    id: "business-manager",
+    name: "AJ Nash",
+    role: "Business Manager",
+    classYear: "Senior",
+    photoUrl: AjNashPic,
+    rushClass: "Beta-Upsilon",
+  },
+  {
+    id: "risk-chair",
+    name: "Will Hastings",
+    role: "Risk Chair",
+    classYear: "Junior",
+    photoUrl: WillHastingsPic,
+    rushClass: "Beta-Chi",
+  },
+  {
+    id: "philanthropy-chair",
+    name: "Baxter Gallagher",
+    role: "Philanthropy Chair",
+    classYear: "Junior",
+    photoUrl: BaxterGallagherPic,
+    rushClass: "Beta-Phi",
+  },
+  {
+    id: "secretary",
+    name: "Teddy Romanowski",
+    role: "Secretary",
+    classYear: "Junior",
+    photoUrl: TeddyRomanowskiPic,
+    rushClass: "Beta-Chi",
+  },
+  {
+    id: "social-chair-1",
+    name: "Gregg Marella",
+    role: "Social Chair",
+    classYear: "Senior",
+    photoUrl: GreggMarellaPic,
+    rushClass: "Beta-Upsilon",
+  },
+  {
+    id: "social-chair-2",
+    name: "Eddie Badolato",
+    role: "Social Chair",
+    classYear: "Senior",
+    photoUrl: EddieBadolatoPic,
+    rushClass: "Beta-Phi",
+  },
+  {
+    id: "new-member-educator",
+    name: "Paul Edelman",
+    role: "New Member Educator",
+    classYear: "Junior",
+    photoUrl: PaulEdelmanPic,
+    rushClass: "Beta-Phi",
+  },
+  {
+    id: "assistant-new-member-educator",
+    name: "Tyler Urie",
+    role: "Assistant New Member Educator",
+    classYear: "Senior",
+    photoUrl: "",
+    rushClass: "Beta-Upsilon",
+  },
+  {
+    id: "accreditation-chair",
+    name: "Jack Carr",
+    role: "Accreditation Chair",
+    classYear: "Junior",
+    photoUrl: JackCarrPic,
+    rushClass: "Beta-Phi",
+  },
+  {
+    id: "dei-chair",
+    name: "Connor Lockwood",
+    role: "DEI Chair",
+    classYear: "Senior",
+    photoUrl: ConnorLockwoodPic,
+    rushClass: "Beta-Phi",
+  },
+  {
+    id: "chaplain",
+    name: "Tom Ingenito",
+    role: "Chaplain/Unique Chair",
+    classYear: "Junior",
+    photoUrl: TomIngenitoPic,
+    rushClass: "Beta-Phi",
+  },
+  {
+    id: "im-chair",
+    name: "Ethan Fassnacht",
+    role: "Intramural Chair",
+    classYear: "Senior",
+    photoUrl: "",
+    rushClass: "Beta-Phi",
+  },
+  {
+    id: "inquisitor",
+    name: "Brandon Taub",
+    role: "Inquisitor",
+    classYear: "Junior",
+    photoUrl: BrandonTaubPic,
+    rushClass: "Beta-Phi",
+  },
+  // { id: "rush-chair-1", name: "Kyle Burke", role: "Rush Chair #1", classYear: "Sophomore", photoUrl: "", rushClass: "Beta-Psi"},
+  // { id: "rush-chair-2", name: "Tim Scott", role: "Rush Chair #2", classYear: "Sophomore", photoUrl: "", rushClass: "Beta-Omega"},
 ];
 
 function BrothersPage() {
@@ -510,17 +685,24 @@ function BrothersPage() {
       <div className="brother-grid">
         {BROTHERS.map((b) => (
           <div key={b.id} className="brother-card" data-id={b.id}>
-              <div className="brother-photo">
-                {b.photoUrl ? <img src={b.photoUrl} alt={b.name} /> : <div className="photo-placeholder">Photo</div>}
-              </div>
+            <div className="brother-photo">
+              {b.photoUrl ? (
+                <img src={b.photoUrl} alt={b.name} />
+              ) : (
+                <div className="photo-placeholder">Photo</div>
+              )}
+            </div>
             <div className="brother-info">
               <div className="brother-name">{b.name}</div>
               <div className="brother-meta brother-meta--stacked">
                 <span className="role-badge">{b.role}</span>
-                {b.classYear && <span className="year-muted">{b.classYear} - {b.rushClass}</span>}
+                {b.classYear && (
+                  <span className="year-muted">
+                    {b.classYear} - {b.rushClass}
+                  </span>
+                )}
               </div>
             </div>
-
           </div>
         ))}
       </div>
@@ -542,10 +724,14 @@ export default function App() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const isHome = page === "home";   // <-- which gap to use?
+  const isHome = page === "home";
 
   return (
-    <div className={`app bg-sides-stripes bg-page-diagonal ${isHome ? "is-home" : "is-regular"}`}>
+    <div
+      className={`app bg-sides-stripes bg-page-diagonal ${
+        isHome ? "is-home" : "is-regular"
+      }`}
+    >
       <div className="scroll-progress" />
       <NavBar page={page} onNavigate={navigate} />
       <main className="main">
@@ -556,9 +742,7 @@ export default function App() {
         {page === "highlights" && <HighlightsPage />}
         {page === "brothers" && <BrothersPage />}
       </main>
-      <footer className="footer">
-        © {new Date().getFullYear()} ΣΦΔ Fraternity
-      </footer>
+      <footer className="footer">© {new Date().getFullYear()} ΣΦΔ Fraternity</footer>
     </div>
   );
 }
