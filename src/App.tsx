@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./App.css";
 import spdLogo from "./assets/logos/spd-logo.png";
 import udLogo from "./assets/logos/ud-logo.svg";
@@ -35,7 +35,7 @@ import TeddyRomanowskiPic from "./assets/brother-pics/teddy-romanowski.png";
 import WillHastingsPic from "./assets/brother-pics/will-hastings.png";
 import JackCarrPic from "./assets/brother-pics/jack-carr.jpeg";
 import PaulEdelmanPic from "./assets/brother-pics/paul-edelman.png";
-import ConnorLockwoodPic from "./assets/brother-pics/connor-lockwood.jpg";
+// import ConnorLockwoodPic from "./assets/brother-pics/connor-lockwood.jpg";
 import BrandonTaubPic from "./assets/brother-pics/brandon-taub.jpg";
 
 type Page = "home" | "rush" | "philanthropy" | "udance" | "highlights" | "brothers";
@@ -62,7 +62,15 @@ function useHashRoute(defaultPage: Page = "home") {
   return { page, navigate };
 }
 
-function NavBar({ page, onNavigate }: { page: Page; onNavigate: (p: Page) => void }) {
+function NavBar({
+  page,
+  onNavigate,
+  hidden,
+}: {
+  page: Page;
+  onNavigate: (p: Page) => void;
+  hidden: boolean;
+}) {
   const links: { key: Page; label: string }[] = [
     { key: "home", label: "Home" },
     { key: "rush", label: "Rush" },
@@ -73,7 +81,7 @@ function NavBar({ page, onNavigate }: { page: Page; onNavigate: (p: Page) => voi
   ];
 
   return (
-    <header className="navbar">
+    <header className={`navbar ${hidden ? "navbar--hidden" : ""}`}>
       <div className="navbar-inner container">
         <div
           className="brand brand--ring border"
@@ -138,9 +146,7 @@ function HomePage() {
         <div className="hero-content container">
           <div className="hero-panel">
             <h1 className="hero-title">Sigma Phi Delta</h1>
-            <p className="hero-subtitle">
-              A fraternity with an engineering focus at UD.
-            </p>
+            <p className="hero-subtitle">A fraternity with an engineering focus at UD.</p>
             <div className="hero-actions">
               <a className="btn btn-primary" href="#/rush">
                 See Rush Events
@@ -163,14 +169,15 @@ function HomePage() {
           <div className="about-card">
             <h3>History &amp; Heritage</h3>
             <p>
-              The <strong>Psi Chapter</strong> of Sigma Phi Delta at the University of Delaware was founded on
-              <strong> April 11, 1999</strong> to unite engineers through professional growth, service, and brotherhood.
+              The <strong>Psi Chapter</strong> of Sigma Phi Delta at the University of Delaware was
+              founded on<strong> April 11, 1999</strong> to unite engineers through professional
+              growth, service, and brotherhood.
             </p>
             <ul className="checks">
               <li>Founded April 11, 1999, over 25 years serving UD students</li>
               <li>
-                Symbols &amp; heritage: red/black, the Castle, and <em>Pro Bono Professionis</em> (for the good of
-                the profession)
+                Symbols &amp; heritage: red/black, the Castle, and{" "}
+                <em>Pro Bono Professionis</em> (for the good of the profession)
               </li>
               <li>Chapter traditions: professional ceremonies, study halls, and project spotlights</li>
               <li>Strong alumni network supporting internships and early careers</li>
@@ -181,21 +188,26 @@ function HomePage() {
             <ul className="checks">
               <li>UDance fundraising year round through drives, events, and partnerships</li>
               <li>Regular philanthropy events that support campus and local causes</li>
-              <li>Welcoming community of engineers &amp; friends, hang out, collaborate, and study with one another</li>
-              <li>Positive Greek life presence at UD: respect, inclusivity, and leadership by example</li>
+              <li>
+                Welcoming community of engineers &amp; friends, hang out, collaborate, and study with
+                one another
+              </li>
+              <li>
+                Positive Greek life presence at UD: respect, inclusivity, and leadership by example
+              </li>
             </ul>
           </div>
         </div>
       </Section>
 
-      {/* Neutral "Latest Event" template */}
       <Section title="Latest Event">
         <div className="contact-card">
           <div className="split split-right-image">
             <div className="split-text">
               <h3>SPD x ChiO Dubai Chocolate Event</h3>
               <p>
-                Brothers of SPD and sisters of Chi Omega collaborated on a Dubai Chocolate sale, with all proceeds supporting UDance and other philanthropic efforts.
+                Brothers of SPD and sisters of Chi Omega collaborated on a Dubai Chocolate sale, with
+                all proceeds supporting UDance and other philanthropic efforts.
               </p>
               <a
                 className="btn btn-special"
@@ -206,7 +218,6 @@ function HomePage() {
               </a>
             </div>
             <div className="split-image">
-              {/* Placeholder image – swap this out whenever you want */}
               <img
                 src={DubaiChocImg}
                 alt="Sigma Phi Delta philanthropy event placeholder"
@@ -221,11 +232,11 @@ function HomePage() {
           <InstagramFeed />
         </div>
       </Section>
+
       <Section title="Contact">
         <div className="contact">
           <article className="contact-card contact-card--split">
             <div className="split split-right-image">
-              {/* Left: text */}
               <div className="contact-body">
                 <h3>Get in Touch</h3>
                 <p>
@@ -252,7 +263,6 @@ function HomePage() {
                 </ul>
               </div>
 
-              {/* Right: image */}
               <div className="split-image contact-image">
                 <img src={ContactPhoto} alt="ΣΦΔ tabling / brothers on campus" />
               </div>
@@ -337,7 +347,6 @@ function PhilanthropyPage() {
           and help us support UDance and local causes.
         </p>
 
-        {/* No upcoming events right now */}
         <p className="muted" style={{ marginTop: 8 }}>
           We don&apos;t have any upcoming philanthropy events scheduled at the moment. Check back
           soon and follow us on Instagram <strong>@ud.spd</strong> for announcements.
@@ -346,12 +355,11 @@ function PhilanthropyPage() {
 
       <Section title="Previous Philanthropy Events">
         <p className="lead">
-          A look back at some of our recent philanthropy and outreach efforts that brought
-          the community together and supported great causes.
+          A look back at some of our recent philanthropy and outreach efforts that brought the
+          community together and supported great causes.
         </p>
 
         <div className="event-stack">
-          {/* 1. Pumpkin Painting (most recent) */}
           <article className="card event-card">
             <div className="event-grid">
               <div className="event-content">
@@ -368,16 +376,15 @@ function PhilanthropyPage() {
             </div>
           </article>
 
-          {/* 2. Coffee sale from the old HomePage "Latest Event" */}
           <article className="cardx event-card">
             <div className="event-grid">
               <div className="event-content">
                 <h3>SPD × GPhi × Phi Tau Dunkin&apos; Donuts &amp; Coffee Sale ☕🍩</h3>
                 <p className="muted">Fall 2025 · Perkins Student Center</p>
                 <p>
-                  Brothers of SPD, sisters of GPhi, and brothers of Phi Tau teamed up for a Dunkin&apos;
-                  Donuts and coffee sale at Perkins. Students grabbed their morning pick-me-up while
-                  helping raise funds in support of UDance and local causes.
+                  Brothers of SPD, sisters of GPhi, and brothers of Phi Tau teamed up for a
+                  Dunkin&apos; Donuts and coffee sale at Perkins. Students grabbed their morning
+                  pick-me-up while helping raise funds in support of UDance and local causes.
                 </p>
               </div>
               <div className="event-media">
@@ -389,16 +396,15 @@ function PhilanthropyPage() {
             </div>
           </article>
 
-          {/* 3. UDairy Ice Cream Truck (keep this at the bottom) */}
           <article className="card event-card">
             <div className="event-grid">
               <div className="event-content">
                 <h3>UDairy Ice Cream Truck with GPhi 🍦</h3>
                 <p className="muted">Fall 2025 · Outside Trabant Food Court</p>
                 <p>
-                  SPD brothers and GPhi sisters teamed up with UDairy to sell ice cream
-                  outside Trabant. The event gave students a chance to grab a treat while
-                  supporting our UDance charity efforts.
+                  SPD brothers and GPhi sisters teamed up with UDairy to sell ice cream outside
+                  Trabant. The event gave students a chance to grab a treat while supporting our
+                  UDance charity efforts.
                 </p>
               </div>
               <div className="event-media">
@@ -446,14 +452,14 @@ function UDancePage() {
           <div className="about-card">
             <h4>Why it matters</h4>
             <p>
-              UD students rally all year at events, campaigns, and a spring dance marathon to
-              make a direct impact on kids and families facing childhood cancer.
+              UD students rally all year at events, campaigns, and a spring dance marathon to make
+              a direct impact on kids and families facing childhood cancer.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="udance-spd card">
+      <div className="about-card udance-card">
         <h3>ΣΦΔ’s Role</h3>
         <ul className="bulletcaret">
           <li>Fundraising drives (food trucks, dunk tank &amp; pie smashing, canning, etc.)</li>
@@ -484,8 +490,9 @@ function HighlightsPage() {
   return (
     <Section title="Brother Highlights">
       <p className="lead">
-        A running showcase of what ΣΦΔ brothers are building, researching, and achieving, on &amp; off campus.
-        These highlights celebrate our drive, creativity, and commitment to making an impact.
+        A running showcase of what ΣΦΔ brothers are building, researching, and achieving, on &amp;
+        off campus. These highlights celebrate our drive, creativity, and commitment to making an
+        impact.
       </p>
 
       <div className="event-stack">
@@ -495,9 +502,10 @@ function HighlightsPage() {
               <h3>HackUDel Winner, “SmartPark”</h3>
               <p className="muted">Timespan: Feb to Mar 2025</p>
               <p>
-                Team of four brothers built a computer-vision parking lot counter and a mobile app that predicts spot
-                availability in real time. Deployed a tiny YOLO model to a Raspberry Pi with on-device inference and a
-                lightweight Flask API. Took 1<sup>st</sup> place overall.
+                Team of four brothers built a computer-vision parking lot counter and a mobile app
+                that predicts spot availability in real time. Deployed a tiny YOLO model to a
+                Raspberry Pi with on-device inference and a lightweight Flask API. Took 1
+                <sup>st</sup> place overall.
               </p>
             </div>
             <div className="event-media">
@@ -511,8 +519,9 @@ function HighlightsPage() {
               <h3>Co-op at DuPont, Process Engineering</h3>
               <p className="muted">Timespan: Summer 2024</p>
               <p>
-                Scoped and implemented a new heat exchange monitoring workflow that reduced downtime by 12%. Built
-                an automated dashboard in Python for weekly KPI reviews and collaborated with safety to update SOPs.
+                Scoped and implemented a new heat exchange monitoring workflow that reduced
+                downtime by 12%. Built an automated dashboard in Python for weekly KPI reviews and
+                collaborated with safety to update SOPs.
               </p>
             </div>
             <div className="event-media">
@@ -643,14 +652,6 @@ const BROTHERS: Brother[] = [
     rushClass: "Beta-Phi",
   },
   {
-    id: "dei-chair",
-    name: "Connor Lockwood",
-    role: "DEI Chair",
-    classYear: "Senior",
-    photoUrl: ConnorLockwoodPic,
-    rushClass: "Beta-Phi",
-  },
-  {
     id: "chaplain",
     name: "Tom Ingenito",
     role: "Chaplain/Unique Chair",
@@ -686,11 +687,7 @@ function BrothersPage() {
         {BROTHERS.map((b) => (
           <div key={b.id} className="brother-card" data-id={b.id}>
             <div className="brother-photo">
-              {b.photoUrl ? (
-                <img src={b.photoUrl} alt={b.name} />
-              ) : (
-                <div className="photo-placeholder">Photo</div>
-              )}
+              {b.photoUrl ? <img src={b.photoUrl} alt={b.name} /> : <div className="photo-placeholder">Photo</div>}
             </div>
             <div className="brother-info">
               <div className="brother-name">{b.name}</div>
@@ -712,13 +709,30 @@ function BrothersPage() {
 
 export default function App() {
   const { page, navigate } = useHashRoute("home");
+  const [navHidden, setNavHidden] = useState(false);
+  const lastYRef = useRef(0);
 
   useEffect(() => {
     const onScroll = () => {
       const h = document.documentElement;
       const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
       document.documentElement.style.setProperty("--scroll", scrolled + "%");
+
+      const currentY = window.scrollY;
+      const lastY = lastYRef.current;
+      const delta = currentY - lastY;
+
+      if (currentY <= 0) {
+        setNavHidden(false);
+      } else if (delta > 0 && currentY > 80) {
+        setNavHidden(true);
+      } else if (delta < 0) {
+        setNavHidden(false);
+      }
+
+      lastYRef.current = currentY;
     };
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -733,7 +747,7 @@ export default function App() {
       }`}
     >
       <div className="scroll-progress" />
-      <NavBar page={page} onNavigate={navigate} />
+      <NavBar page={page} onNavigate={navigate} hidden={navHidden} />
       <main className="main">
         {page === "home" && <HomePage />}
         {page === "rush" && <RushPage />}

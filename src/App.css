@@ -1,3 +1,4 @@
+/* App.css */
 :root{
   --bg: #f7f8fb;
   --surface: #ffffff;
@@ -45,8 +46,22 @@ body {
   width: 100%;
   margin: 24px 0;
   flex: 1;
-  margin-top: calc(var(--nav-gap) + env(safe-area-inset-top, 0px));
 }
+
+/* Default (desktop) */
+.main {
+  margin-top: calc(var(--nav-gap));
+}
+
+/* Mobile version */
+@media (max-width: 600px) {
+  .main {
+    margin-top: calc(var(--nav-gap) + 30px);
+  }
+}
+
+
+
 
 .footer {
   border-top: 1px solid var(--border);
@@ -57,11 +72,18 @@ body {
 }
 
 .navbar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
   background: rgba(0,0,0,.85);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(255,255,255,.08);
+  transition: transform .25s ease, background .2s ease;
+}
+
+.navbar--hidden {
+  transform: translateY(-100%);
 }
 
 .navbar-inner {
@@ -292,6 +314,21 @@ body {
 }
 
 .about-card h3 {
+  margin: 10px 0px 10px 0px;
+  font-size: 18px;
+}
+
+.udance-card {
+  border: var(--card-bw) solid black;
+  border-radius: 12px;
+  background: #fff5f5;
+  padding: 14px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+  border: var(--card-bw) solid black;
+  background: rgba(0, 0, 0, 0.035);
+}
+
+.udance-card h3 {
   margin: 10px 0px 10px 0px;
   font-size: 18px;
 }
@@ -766,4 +803,112 @@ ul.bulletcaret, ol.bulletcaret {
 .brother-card[data-id="dei-chair"] .brother-photo img,
 .brother-card[data-id="inquisitor"] .brother-photo img{
   object-position: 50% 25%;
+}
+
+/* ===== Extra small screens (phones like iPhone) ===== */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .section {
+    padding: 16px 14px;
+    margin-top: 16px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  /* HERO tweaks */
+  .hero {
+    height: 340px;
+    background-position: 50% 50%;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .hero-title::after {
+    width: 220px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* NAVBAR tweaks */
+  .navbar-inner {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .nav-link {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+
+  .nav-logos {
+    display: none;
+  }
+
+  .brand.brand--ring {
+    font-size: 14px;
+    padding: 4px 10px;
+  }
+
+  /* Cards & stacks */
+  .card,
+  .cardx,
+  .about-card,
+  .contact-card {
+    padding: 12px;
+  }
+
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-media {
+    height: 200px;
+  }
+
+  /* Brother grid: 2 columns */
+  .brother-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .brother-card {
+    box-shadow: var(--elev-1);
+  }
+
+  /* UDance collage: 1 column */
+  .udance-collage {
+    grid-template-columns: 1fr;
+  }
+
+  /* Remove side stripes for full width content */
+  .app::before,
+  .app::after {
+    display: none;
+  }
 }
