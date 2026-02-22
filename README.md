@@ -4,7 +4,6 @@ A React + TypeScript single-page site for the University of Delaware Sigma Phi D
 
 The site showcases rush events, philanthropy, UDance involvement, chapter highlights, and active brothers.
 
----
 
 ## Tech Stack
 
@@ -12,7 +11,6 @@ The site showcases rush events, philanthropy, UDance involvement, chapter highli
 - Custom CSS (no framework)
 - Local image assets
 
----
 
 ## Pages
 
@@ -23,7 +21,6 @@ The site showcases rush events, philanthropy, UDance involvement, chapter highli
 - **Highlights** — member accomplishments  
 - **Brothers** — active members with roles & class year  
 
----
 
 ## Features
 
