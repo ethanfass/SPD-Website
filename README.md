@@ -1,103 +1,36 @@
-# Sigma Phi Delta (ΣΦΔ) — Psi Chapter Website
+# Sigma Phi Delta (Ψ Chapter) Website
 
-A React + TypeScript (Vite) single-page site for the University of Delaware’s ΣΦΔ (Psi Chapter). It uses a light hash-router, responsive cards, custom “side-gutter” stripes, and an image-backed hero. Pages include: Home, Rush, Philanthropy, UDance, Highlights, and Brothers.
+A React + TypeScript single-page site for the University of Delaware Sigma Phi Delta Psi Chapter.
 
----
-
-## Features
-
-* Hash-based navigation (no external router)
-* Responsive hero with overlay + call-to-action buttons
-* Reusable “event card” layout with image on the right
-* Brothers grid with role badges and class year
-* UDance section with 3×3 photo collage + chapter total
-* Highlights section for member accomplishments
-* Custom bullet styles (`.bulletdash`, `.bulletdot`, `.bulletarrow`, `.bulletsquare`, `.bulletcaret`)
-* Decorative diagonal background stripes on page + side gutters
-* Instagram feed component (simple grid)
-* Accessible keyboard nav for brand button, focus rings on links/buttons
-* Pure CSS theming via variables (`:root`) for colors, radii, shadows
+The site showcases rush events, philanthropy, UDance involvement, chapter highlights, and active brothers.
 
 ---
 
 ## Tech Stack
 
-* Frontend: React, TypeScript, Vite
-* Styling: Hand-rolled CSS with CSS variables (no framework)
-* Assets: Local images in `/src/assets/**` and `/public/**`
+- React + TypeScript (Vite)
+- Custom CSS (no framework)
+- Local image assets
 
 ---
 
-## Setup
+## Pages
 
-```bash
-npm install
-npm run dev
-```
-
-* Opens at: [http://localhost:5173](http://localhost:5173)
-
----
-
-## Build
-
-```bash
-npm run build
-npm run preview
-```
+- **Home** — overview, latest event, Instagram feed, contact  
+- **Rush** — upcoming rush events  
+- **Philanthropy** — service & fundraising events  
+- **UDance** — chapter involvement and fundraising total  
+- **Highlights** — member accomplishments  
+- **Brothers** — active members with roles & class year  
 
 ---
 
-## Project Structure (high level)
+## Features
 
-```
-src/
-  App.tsx                 # Hash router + page shell
-  App.css                 # Theme variables, layout, stripes, components
-  components/InstagramFeed.tsx
-  assets/
-    logos/                # spd-logo.png, ud-logo.svg
-    brother-pics/         # profile photos (e.g., tom-ingenito.jpg)
-    rush-pics/            # classroom.jpg, westmain.jpg, grottos.jpg
-    phila-pics/           # icecream.jpg, pumpkin.jpg
-    general-pics/         # e.g., spd-flag.jpg (Contact image)
-public/
-  insta3.jpg              # Hero background (served from /insta3.jpg)
-```
+- Responsive layout
+- Hero banner with buttons
+- Reusable event card layout
+- Brothers grid with role badges
+- UDance photo collage section
+- Instagram photo grid
 
----
-
-## Pages & Content
-
-* **Home**
-  Hero title + subtitle, CTA buttons. About section with two cards. “Latest Event” split card with image on the right. Instagram grid. Contact split card with image.
-
-* **Rush**
-  Stack of event cards with dates, description, and event image.
-
-* **Philanthropy**
-  Upcoming philanthropy events (card layout reused).
-
-* **UDance**
-  What UDance is, Who we raise for, Why it matters, ΣΦΔ’s role, last year’s total, and a 3×3 collage.
-
-* **Highlights**
-  Accomplishments by brothers (each highlight uses the event card layout).
-
-* **Brothers**
-  Responsive grid with photo, name, role badge, and class year.
-
----
-
-## Notes
-
-* Static site (no backend). All content is authored in code.
-* Keep image sizes reasonable and compressed for performance.
-* If you change filenames in `public/`, update any hard-coded URLs (e.g., hero).
-* The diagonal background uses `background-attachment: fixed`—disable on very old/low-power devices if needed.
-
----
-
-## License
-
-Internal chapter project. If you intend to open-source, contact me via email - ethfass74@gmail.com.
